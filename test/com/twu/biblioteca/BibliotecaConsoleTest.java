@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,9 +24,13 @@ public class BibliotecaConsoleTest {
     public void shouldReturnListOfAllBooks() {
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole();
 
-        List<String> bookList = Arrays.asList("Harry Potter and The Sorcerer's Stone",  "Homo Deus", "Sapiens");
+        List<String> expectedBookTitleList =
+            Arrays.asList("Harry Potter and The Sorcerer's Stone",  "Homo Deus", "Sapiens");
 
-        assertEquals(bookList, bibliotecaConsole.getBookList());
+        List<String> actualBookTitleList =
+            bibliotecaConsole.getBookList().stream().map(Book::getTitle).collect(Collectors.toList());
+
+        assertEquals(expectedBookTitleList, actualBookTitleList);
     }
 
     @Test
