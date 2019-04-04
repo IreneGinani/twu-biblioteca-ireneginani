@@ -10,9 +10,8 @@ public class BibliotecaApp {
 
         System.out.println(bibliotecaConsole.getWelcomeMessage());
 
-        for (String book: bibliotecaConsole.getBookList()) {
+        for (Book book: bibliotecaConsole.getBookList()) {
             System.out.println(book);
         }
-
     }
 }
