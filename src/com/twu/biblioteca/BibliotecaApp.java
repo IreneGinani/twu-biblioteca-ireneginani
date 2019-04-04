@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.console.BibliotecaConsole;
-import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 
 import java.util.Scanner;
@@ -22,8 +21,6 @@ public class BibliotecaApp {
 
         int option = scan.nextInt();
 
-        bibliotecaConsole.processOption(option);
-
-
+        System.out.println(bibliotecaConsole.processOption(option));
     }
 }
