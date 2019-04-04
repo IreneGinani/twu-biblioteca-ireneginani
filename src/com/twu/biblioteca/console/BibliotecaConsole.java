@@ -20,6 +20,6 @@ public class BibliotecaConsole {
     }
 
     public List<Book> processOption(int option) {
-        return null;
+        return getBookList();
     }
 }
