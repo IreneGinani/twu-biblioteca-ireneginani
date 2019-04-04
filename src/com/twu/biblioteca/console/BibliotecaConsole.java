@@ -13,7 +13,7 @@ public class BibliotecaConsole {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
 
-    public void processOption(int option) {
+    public String processOption(int option) {
 
         System.out.println("Title - Author - Year");
 
@@ -21,6 +21,7 @@ public class BibliotecaConsole {
             System.out.println(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear());
         }
 
+        return null;
     }
 
     private Library library;
