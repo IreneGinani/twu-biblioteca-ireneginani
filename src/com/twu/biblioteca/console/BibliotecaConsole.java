@@ -14,18 +14,19 @@ public class BibliotecaConsole {
     }
 
     public String processOption(int option) {
+        StringBuffer sb = new StringBuffer();
 
         if (option == 1) {
-            System.out.println("Title - Author - Year");
+            sb.append("Title - Author - Year\n");
 
             for (Book book : library.getBookList()) {
-                System.out.println(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear());
+                sb.append(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear() + "\n");
             }
         } else {
-            return "Please select a valid option!";
+            sb.append("Please select a valid option!");
         }
 
-        return null;
+        return sb.toString();
     }
 
     private Library library;
