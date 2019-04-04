@@ -1,18 +1,14 @@
 package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.Book;
+import com.twu.biblioteca.domain.Library;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class BibliotecaConsole {
 
-    public List<Book> getBookList() {
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone", "J.K Rowling", 1997);
-        Book homoDeus = new Book("Homo Deus", "Harari", 2015);
-        Book sapiens = new Book("Sapiens", "Harari", 2011);
-
-        return Arrays.asList(harryPotter, homoDeus, sapiens);
+    public BibliotecaConsole(Library library) {
+        this.library = library;
     }
 
     public String getWelcomeMessage() {
@@ -20,6 +16,8 @@ public class BibliotecaConsole {
     }
 
     public List<Book> processOption(int option) {
-        return getBookList();
+        return library.getBookList();
     }
+
+    private Library library;
 }
