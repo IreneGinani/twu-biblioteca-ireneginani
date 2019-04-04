@@ -15,10 +15,14 @@ public class BibliotecaConsole {
 
     public String processOption(int option) {
 
-        System.out.println("Title - Author - Year");
+        if (option == 1) {
+            System.out.println("Title - Author - Year");
 
-        for (Book book: library.getBookList()) {
-            System.out.println(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear());
+            for (Book book : library.getBookList()) {
+                System.out.println(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear());
+            }
+        } else {
+            return "Please select a valid option!";
         }
 
         return null;
