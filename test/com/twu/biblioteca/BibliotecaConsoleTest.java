@@ -46,4 +46,18 @@ public class BibliotecaConsoleTest {
 
         assertEquals(bookList, bibliotecaConsole.getBookList());
     }
+
+    @Test
+    public void shouldReturnListOfAllBooksWhenOptionSelectedIsOne() {
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book homoDeus = new Book("Homo Deus", "Harari", 2015);
+        Book sapiens = new Book("Sapiens", "Harari", 2011);
+
+        List<Book> bookList = Arrays.asList(harryPotter, homoDeus, sapiens);
+        int option = 1;
+
+        assertEquals(bookList, bibliotecaConsole.processOption(option));
+    }
 }
