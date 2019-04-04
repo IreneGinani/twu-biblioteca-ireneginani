@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.Book;
 
