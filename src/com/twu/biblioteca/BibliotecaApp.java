@@ -10,8 +10,10 @@ public class BibliotecaApp {
 
         System.out.println(bibliotecaConsole.getWelcomeMessage());
 
+        System.out.println("Title - Author - Year");
+
         for (Book book: bibliotecaConsole.getBookList()) {
-            System.out.println(book);
+            System.out.println(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear());
         }
     }
 }
