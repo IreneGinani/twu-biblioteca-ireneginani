@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.domain.Book;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -23,6 +24,19 @@ public class BibliotecaConsoleTest {
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole();
 
         List<String> bookList = Arrays.asList("Harry Potter and The Sorcerer's Stone",  "Homo Deus", "Sapiens");
+
+        assertEquals(bookList, bibliotecaConsole.getBookList());
+    }
+
+    @Test
+    public void shouldReturnListOfAllBooksWithTitleAuthorAndPublication() {
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book homoDeus = new Book("Homo Deus", "Harari", 2015);
+        Book sapiens = new Book("Sapiens", "Harari", 2011);
+
+        List<Book> bookList = Arrays.asList(harryPotter, homoDeus, sapiens);
 
         assertEquals(bookList, bibliotecaConsole.getBookList());
     }
