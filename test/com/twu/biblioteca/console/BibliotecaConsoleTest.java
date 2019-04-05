@@ -1,11 +1,7 @@
 package com.twu.biblioteca.console;
 
-import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -28,7 +24,7 @@ public class BibliotecaConsoleTest {
 
         String invalidOptionMessage = "Please select a valid option!";
 
-        assertEquals(invalidOptionMessage, bibliotecaConsole.processOption(123));
+        assertEquals(invalidOptionMessage, bibliotecaConsole.processOption("123"));
     }
 
     @Test
@@ -40,8 +36,6 @@ public class BibliotecaConsoleTest {
                                 "Homo Deus - Harari - 2015\n" +
                                 "Sapiens - Harari - 2011\n";
 
-        int option = 1;
-
-        assertEquals(expectedOutput, bibliotecaConsole.processOption(option));
+        assertEquals(expectedOutput, bibliotecaConsole.processOption("1"));
     }
 }

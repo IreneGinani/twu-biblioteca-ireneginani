@@ -19,7 +19,7 @@ public class BibliotecaApp {
 
         Scanner scan = new Scanner(System.in);
 
-        int option = scan.nextInt();
+        String option = scan.next();
 
         System.out.println(bibliotecaConsole.processOption(option));
     }

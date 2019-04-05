@@ -13,10 +13,10 @@ public class BibliotecaConsole {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
 
-    public String processOption(int option) {
+    public String processOption(String option) {
         StringBuffer sb = new StringBuffer();
 
-        if (option == 1) {
+        if (option.equals("1")) {
             sb.append("Title - Author - Year\n");
 
             for (Book book : library.getBookList()) {
