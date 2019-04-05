@@ -14,6 +14,10 @@ public class BibliotecaConsole {
     }
 
     public String processOption(String option) {
+        if (option.equals("0")) {
+            return "";
+        }
+
         StringBuffer sb = new StringBuffer();
 
         if (option.equals("1")) {
