@@ -24,13 +24,13 @@ public class BibliotecaConsole {
             return "";
         }
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         if (option.equals("1")) {
             sb.append("Title - Author - Year\n");
 
             for (Book book : library.getBookList()) {
-                sb.append(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear() + "\n");
+                sb.append(book.getTitle()).append(" - ").append(book.getAuthor()).append(" - ").append(book.getYear()).append("\n");
             }
         } else {
             sb.append("Please select a valid option!\n");
