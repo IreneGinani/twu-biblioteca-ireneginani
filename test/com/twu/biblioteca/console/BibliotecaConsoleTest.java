@@ -8,6 +8,14 @@ import static org.junit.Assert.assertEquals;
 public class BibliotecaConsoleTest {
 
     @Test
+    public void shouldNotReturnAnythingIfOptionIsQuit() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        assertEquals("", bibliotecaConsole.processOption("0"));
+    }
+
+    @Test
     public void shouldReturnWelcomeMessage() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
