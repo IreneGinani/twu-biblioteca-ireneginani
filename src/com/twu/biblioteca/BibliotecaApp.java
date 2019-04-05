@@ -20,11 +20,13 @@ public class BibliotecaApp {
             Scanner scan = new Scanner(System.in);
             String option = scan.next();
 
-            if (option.equals("0")){
+            String output = bibliotecaConsole.processOption(option);
+
+            if (output == null) {
                 break;
             }
 
-            System.out.print(bibliotecaConsole.processOption(option));
+            System.out.print(output);
         }
     }
 }

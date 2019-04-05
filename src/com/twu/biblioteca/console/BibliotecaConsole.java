@@ -21,7 +21,7 @@ public class BibliotecaConsole {
 
     public String processOption(String option) {
         if (option.equals("0")) {
-            return "";
+            return null;
         }
 
         StringBuilder sb = new StringBuilder();

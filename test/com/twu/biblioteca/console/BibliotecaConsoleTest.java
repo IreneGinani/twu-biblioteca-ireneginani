@@ -4,6 +4,7 @@ import com.twu.biblioteca.domain.Library;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class BibliotecaConsoleTest {
 
@@ -12,7 +13,7 @@ public class BibliotecaConsoleTest {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        assertEquals("", bibliotecaConsole.processOption("0"));
+        assertNull(bibliotecaConsole.processOption("0"));
     }
 
     @Test
