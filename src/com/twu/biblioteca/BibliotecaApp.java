@@ -15,9 +15,7 @@ public class BibliotecaApp {
         System.out.println(bibliotecaConsole.getWelcomeMessage());
 
         while (true){
-            System.out.println("Choose an option:");
-            System.out.println("(1) List of Books");
-            System.out.println("(0) Quit");
+            System.out.println(bibliotecaConsole.getMainMenu());
 
             Scanner scan = new Scanner(System.in);
             String option = scan.next();

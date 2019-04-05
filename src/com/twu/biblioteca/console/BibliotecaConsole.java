@@ -9,6 +9,12 @@ public class BibliotecaConsole {
         this.library = library;
     }
 
+    public String getMainMenu() {
+        return "Choose an option:\n" +
+                "(1) List of Books\n" +
+                "(0) Quit\n";
+    }
+
     public String getWelcomeMessage() {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
