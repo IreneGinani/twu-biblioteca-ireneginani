@@ -14,13 +14,19 @@ public class BibliotecaApp {
 
         System.out.println(bibliotecaConsole.getWelcomeMessage());
 
-        System.out.println("Choose an option:");
-        System.out.println("(1) List of Books");
+        while (true){
+            System.out.println("Choose an option:");
+            System.out.println("(1) List of Books");
+            System.out.println("(0) Quit");
 
-        Scanner scan = new Scanner(System.in);
+            Scanner scan = new Scanner(System.in);
+            String option = scan.next();
 
-        String option = scan.next();
+            if (option.equals("0")){
+                break;
+            }
 
-        System.out.println(bibliotecaConsole.processOption(option));
+            System.out.print(bibliotecaConsole.processOption(option));
+        }
     }
 }

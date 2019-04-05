@@ -30,7 +30,7 @@ public class BibliotecaConsoleTest {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        String invalidOptionMessage = "Please select a valid option!";
+        String invalidOptionMessage = "Please select a valid option!\n";
 
         assertEquals(invalidOptionMessage, bibliotecaConsole.processOption("123"));
     }

@@ -27,7 +27,7 @@ public class BibliotecaConsole {
                 sb.append(book.getTitle() + " - " + book.getAuthor() + " - " + book.getYear() + "\n");
             }
         } else {
-            sb.append("Please select a valid option!");
+            sb.append("Please select a valid option!\n");
         }
 
         return sb.toString();
