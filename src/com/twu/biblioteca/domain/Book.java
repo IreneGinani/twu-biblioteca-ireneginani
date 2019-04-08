@@ -8,7 +8,7 @@ public class Book {
         this.author = author;
         this.title = title;
         this.year = year;
-        
+
         available = true;
     }
 
@@ -27,12 +27,14 @@ public class Book {
         return author;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
-    public int getYear() {
-        return year;
+    public int getYear() { return year; }
+
+    public boolean isAvailable() { return available; }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     private String author;
