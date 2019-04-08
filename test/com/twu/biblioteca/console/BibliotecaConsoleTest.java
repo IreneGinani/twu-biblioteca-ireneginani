@@ -27,6 +27,16 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
+    public void shouldReturnSuccessMessageWhenCheckingOutABook() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String successMessage = "Thank you! Enjoy the book!";
+
+        assertEquals(successMessage, bibliotecaConsole.processOption("2"));
+    }
+
+    @Test
     public void shouldReturnInvalidOptionMessage() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
