@@ -19,13 +19,26 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
-    public void shouldReturnWelcomeMessage() {
+    public void shouldReturnInvalidOptionMessage() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+        String invalidOptionMessage = "Please select a valid option!\n";
 
-        assertEquals(welcomeMessage, bibliotecaConsole.getWelcomeMessage());
+        assertEquals(invalidOptionMessage, bibliotecaConsole.processOption("123"));
+    }
+
+    @Test
+    public void shouldReturnListOfAllBooksWhenOptionSelectedIsOne() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String expectedOutput = "Index - Title - Author - Year\n" +
+                "0 - Harry Potter and The Sorcerer's Stone - J.K Rowling - 1997\n" +
+                "1 - Homo Deus - Harari - 2015\n" +
+                "2 - Sapiens - Harari - 2011\n";
+
+        assertEquals(expectedOutput, bibliotecaConsole.processOption("1"));
     }
 
     @Test
@@ -51,25 +64,12 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
-    public void shouldReturnInvalidOptionMessage() {
+    public void shouldReturnWelcomeMessage() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        String invalidOptionMessage = "Please select a valid option!\n";
+        String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
 
-        assertEquals(invalidOptionMessage, bibliotecaConsole.processOption("123"));
-    }
-
-    @Test
-    public void shouldReturnListOfAllBooksWhenOptionSelectedIsOne() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
-        String expectedOutput = "Index - Title - Author - Year\n" +
-                                "0 - Harry Potter and The Sorcerer's Stone - J.K Rowling - 1997\n" +
-                                "1 - Homo Deus - Harari - 2015\n" +
-                                "2 - Sapiens - Harari - 2011\n";
-
-        assertEquals(expectedOutput, bibliotecaConsole.processOption("1"));
+        assertEquals(welcomeMessage, bibliotecaConsole.getWelcomeMessage());
     }
 }
