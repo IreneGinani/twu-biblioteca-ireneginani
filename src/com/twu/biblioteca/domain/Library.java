@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Library {
 
+    public boolean checkoutBook(Book book) {
+        return false;
+    }
+
     public List<Book> getBookList() {
         Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone", "J.K Rowling", 1997);
         Book homoDeus = new Book("Homo Deus", "Harari", 2015);

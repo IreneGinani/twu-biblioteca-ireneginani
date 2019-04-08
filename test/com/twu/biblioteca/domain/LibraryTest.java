@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
     @Test
@@ -33,5 +34,14 @@ public class LibraryTest {
         List<Book> bookList = Arrays.asList(harryPotter, homoDeus, sapiens);
 
         assertEquals(bookList, library.getBookList());
+    }
+
+    @Test
+    public void shouldReturnTrueWhenCheckoutBook() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+
+        assertTrue(library.checkoutBook(harryPotter));
     }
 }
