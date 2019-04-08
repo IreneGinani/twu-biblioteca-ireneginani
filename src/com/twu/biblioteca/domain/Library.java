@@ -6,7 +6,7 @@ import java.util.List;
 public class Library {
 
     public boolean checkoutBook(Book book) {
-        return false;
+        return true;
     }
 
     public List<Book> getBookList() {
