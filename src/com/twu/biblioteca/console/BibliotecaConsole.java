@@ -90,6 +90,6 @@ public class BibliotecaConsole {
             return "Thank you for returning the book!\n";
         }
 
-        return "";
+        return "That is not a valid book to return.\n";
     }
 }
