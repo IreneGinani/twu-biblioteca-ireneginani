@@ -88,7 +88,7 @@ public class BibliotecaConsole {
 
         try {
             output = library.returnBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid book index!\n";
         }
 
