@@ -37,5 +37,9 @@ public class Library {
         return books.stream().filter(Book::isAvailable).collect(Collectors.toList());
     }
 
+    public boolean returnBook(Book book) {
+        return false;
+    }
+
     private List<Book> books;
 }

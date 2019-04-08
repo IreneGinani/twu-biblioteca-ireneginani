@@ -79,4 +79,33 @@ public class LibraryTest {
 
         assertTrue(library.checkoutBook(harryPotter));
     }
+
+    @Test
+    public void shouldReturnTrueWhenReturningBook() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+
+        library.checkoutBook(harryPotter);
+        harryPotter.setAvailable(false);
+
+        assertTrue(library.returnBook(harryPotter));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenReturningSameBookTwice() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+
+        library.checkoutBook(harryPotter);
+        harryPotter.setAvailable(false);
+
+        library.returnBook(harryPotter);
+
+        library.checkoutBook(harryPotter);
+        harryPotter.setAvailable(false);
+
+        assertFalse(library.returnBook(harryPotter));
+    }
 }
