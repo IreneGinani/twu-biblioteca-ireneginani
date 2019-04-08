@@ -1,5 +1,6 @@
 package com.twu.biblioteca.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,17 +12,25 @@ public class Library {
         Book homoDeus = new Book("Homo Deus", "Harari", 2015);
         Book sapiens = new Book("Sapiens", "Harari", 2011);
 
-        books = Arrays.asList(harryPotter, homoDeus, sapiens);
+        books = new ArrayList<>(Arrays.asList(harryPotter, homoDeus, sapiens));
     }
 
     public boolean checkoutBook(Book book) {
-        book.setAvailable(false);
+        for (int i = 0; i < books.size(); i++) {
+            Book currentBook = books.get(i);
 
-        return true;
+            if (book.equals(currentBook)) {
+                currentBook.setAvailable(false);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public List<Book> getBookList() {
-        return books.stream().filter(book -> book.isAvailable()).collect(Collectors.toList());
+        return books.stream().filter(Book::isAvailable).collect(Collectors.toList());
     }
 
     private List<Book> books;
