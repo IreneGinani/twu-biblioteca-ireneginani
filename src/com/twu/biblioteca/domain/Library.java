@@ -38,6 +38,16 @@ public class Library {
     }
 
     public boolean returnBook(Book book) {
+        for (int i = 0; i < books.size(); i++) {
+            Book currentBook = books.get(i);
+
+            if (book.equals(currentBook) && !currentBook.isAvailable()) {
+                currentBook.setAvailable(true);
+
+                return true;
+            }
+        }
+
         return false;
     }
 
