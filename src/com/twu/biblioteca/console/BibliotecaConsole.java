@@ -9,6 +9,18 @@ public class BibliotecaConsole {
         this.library = library;
     }
 
+    public String getFormattedBookList() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Title - Author - Year\n");
+
+        for (Book book : library.getBookList()) {
+            sb.append(book.getTitle()).append(" - ").append(book.getAuthor()).append(" - ").append(book.getYear()).append("\n");
+        }
+
+        return sb.toString();
+    }
+
     public String getMainMenu() {
         return "Choose an option:\n" +
                 "(1) List of Books\n" +
@@ -24,21 +36,13 @@ public class BibliotecaConsole {
             return null;
         }
 
-        StringBuilder sb = new StringBuilder();
-
         if (option.equals("1")) {
-            sb.append("Title - Author - Year\n");
-
-            for (Book book : library.getBookList()) {
-                sb.append(book.getTitle()).append(" - ").append(book.getAuthor()).append(" - ").append(book.getYear()).append("\n");
-            }
+            return getFormattedBookList();
         } else if (option.equals("2")) {
-            sb.append("Thank you! Enjoy the book!\n");
+            return "Thank you! Enjoy the book!\n";
         } else {
-            sb.append("Please select a valid option!\n");
+            return "Please select a valid option!\n";
         }
-
-        return sb.toString();
     }
 
     private Library library;
