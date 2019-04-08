@@ -55,6 +55,7 @@ public class BibliotecaConsole {
         return "Choose an option:\n" +
                 "(1) List of Books\n" +
                 "(2) Checkout a book\n" +
+                "(3) Return a book\n" +
                 "(0) Quit\n";
     }
 
@@ -76,6 +77,13 @@ public class BibliotecaConsole {
             String bookIndex = scan.next();
 
             return checkoutBook(bookIndex);
+        } else if (option.equals("3")) {
+            System.out.println("Please, enter a book index");
+
+            Scanner scan = new Scanner(System.in);
+            String bookIndex = scan.next();
+
+            return returnBook(bookIndex);
         } else {
             return "Please select a valid option!\n";
         }
