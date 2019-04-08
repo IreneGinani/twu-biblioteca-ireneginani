@@ -22,6 +22,17 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldReturnFalseWhenCheckoutNonExistingBook() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and Chamber of Secrets","J.K Rowling", 1998);
+
+        library.checkoutBook(harryPotter);
+
+        assertFalse(library.checkoutBook(harryPotter));
+    }
+
+    @Test
     public void shouldReturnListOfAllBooks() {
         Library library = new Library();
 
