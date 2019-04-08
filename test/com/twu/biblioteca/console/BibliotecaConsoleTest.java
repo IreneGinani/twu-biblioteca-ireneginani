@@ -96,6 +96,16 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
+    public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToReturnABook() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String errorMessage = "Please, enter a valid book index!\n";
+
+        assertEquals(errorMessage, bibliotecaConsole.returnBook("10"));
+    }
+
+    @Test
     public void shouldReturnErrorMessageWhenUsingNonNumericIndexToCheckoutABook() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
