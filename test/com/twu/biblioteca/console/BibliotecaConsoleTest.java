@@ -3,7 +3,8 @@ package com.twu.biblioteca.console;
 import com.twu.biblioteca.domain.Library;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BibliotecaConsoleTest {
 
@@ -34,7 +35,19 @@ public class BibliotecaConsoleTest {
 
         String successMessage = "Thank you! Enjoy the book!\n";
 
-        assertEquals(successMessage, bibliotecaConsole.processOption("2"));
+        assertEquals(successMessage, bibliotecaConsole.checkoutBook("2"));
+    }
+
+    @Test
+    public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        bibliotecaConsole.checkoutBook("2");
+
+        String unsuccessfulMessage = "Sorry, that book is not available!\n";
+
+        assertEquals(unsuccessfulMessage, bibliotecaConsole.checkoutBook("2"));
     }
 
     @Test
@@ -51,6 +64,7 @@ public class BibliotecaConsoleTest {
     public void shouldReturnListOfAllBooksWhenOptionSelectedIsOne() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
         String expectedOutput = "Title - Author - Year\n" +
                                 "Harry Potter and The Sorcerer's Stone - J.K Rowling - 1997\n" +
                                 "Homo Deus - Harari - 2015\n" +
