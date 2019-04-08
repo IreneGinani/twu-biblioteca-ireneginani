@@ -9,6 +9,16 @@ public class BibliotecaConsole {
         this.library = library;
     }
 
+    public String checkoutBook(String bookIndex){
+        boolean output = library.checkoutBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+
+        if (output) {
+            return "Thank you! Enjoy the book!\n";
+        }
+
+        return "Sorry, that book is not available!\n";
+    }
+
     public String getFormattedBookList() {
         StringBuilder sb = new StringBuilder();
 
@@ -39,7 +49,7 @@ public class BibliotecaConsole {
         if (option.equals("1")) {
             return getFormattedBookList();
         } else if (option.equals("2")) {
-            return "Thank you! Enjoy the book!\n";
+            return checkoutBook("");
         } else {
             return "Please select a valid option!\n";
         }

@@ -19,7 +19,7 @@ public class Library {
         for (int i = 0; i < books.size(); i++) {
             Book currentBook = books.get(i);
 
-            if (book.equals(currentBook)) {
+            if (book.equals(currentBook) && currentBook.isAvailable()) {
                 currentBook.setAvailable(false);
 
                 return true;
@@ -27,6 +27,10 @@ public class Library {
         }
 
         return false;
+    }
+
+    public Book getBookByIndex(int bookIndex) {
+        return books.get(bookIndex);
     }
 
     public List<Book> getBookList() {
