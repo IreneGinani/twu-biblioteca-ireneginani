@@ -3,8 +3,7 @@ package com.twu.biblioteca.console;
 import com.twu.biblioteca.domain.Library;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class BibliotecaConsoleTest {
 
@@ -13,7 +12,9 @@ public class BibliotecaConsoleTest {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        assertNull(bibliotecaConsole.processOption("0"));
+        String output = bibliotecaConsole.processOption("0");
+
+        assertTrue(output.isEmpty());
     }
 
     @Test

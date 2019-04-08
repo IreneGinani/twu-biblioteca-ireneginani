@@ -33,7 +33,7 @@ public class BibliotecaConsole {
 
     public String processOption(String option) {
         if (option.equals("0")) {
-            return null;
+            return "";
         }
 
         if (option.equals("1")) {

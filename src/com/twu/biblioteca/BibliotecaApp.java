@@ -22,7 +22,7 @@ public class BibliotecaApp {
 
             String output = bibliotecaConsole.processOption(option);
 
-            if (output == null) {
+            if (output.isEmpty()) {
                 break;
             }
 
