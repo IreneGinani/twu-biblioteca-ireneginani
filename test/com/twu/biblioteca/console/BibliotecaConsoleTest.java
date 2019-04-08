@@ -116,6 +116,16 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
+    public void shouldReturnErrorMessageWhenUsingNonNumericIndexToReturnABook() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String errorMessage = "Please, enter a valid book index!\n";
+
+        assertEquals(errorMessage, bibliotecaConsole.returnBook("abc"));
+    }
+
+    @Test
     public void shouldReturnWelcomeMessage() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
