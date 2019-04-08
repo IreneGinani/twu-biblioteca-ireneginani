@@ -3,6 +3,7 @@ package com.twu.biblioteca.console;
 import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaConsole {
@@ -24,10 +25,21 @@ public class BibliotecaConsole {
     public String getFormattedBookList() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Title - Author - Year\n");
+        sb.append("Index - Title - Author - Year\n");
 
-        for (Book book : library.getBookList()) {
-            sb.append(book.getTitle()).append(" - ").append(book.getAuthor()).append(" - ").append(book.getYear()).append("\n");
+        List<Book> bookList = library.getBookList();
+
+        for (int i = 0; i < bookList.size(); i++) {
+            Book book = bookList.get(i);
+
+            sb.append(i)
+                .append(" - ")
+                .append(book.getTitle())
+                .append(" - ")
+                .append(book.getAuthor())
+                .append(" - ")
+                .append(book.getYear())
+                .append("\n");
         }
 
         return sb.toString();
