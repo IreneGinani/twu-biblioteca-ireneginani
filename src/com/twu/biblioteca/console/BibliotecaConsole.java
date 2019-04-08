@@ -84,7 +84,13 @@ public class BibliotecaConsole {
     private Library library;
 
     public String returnBook(String bookIndex) {
-        boolean output = library.returnBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+        boolean output;
+
+        try {
+            output = library.returnBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+        } catch (IndexOutOfBoundsException e) {
+            return "Please, enter a valid book index!\n";
+        }
 
         if (output) {
             return "Thank you for returning the book!\n";
