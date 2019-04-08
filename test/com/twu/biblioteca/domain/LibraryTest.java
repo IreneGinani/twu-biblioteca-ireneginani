@@ -56,4 +56,15 @@ public class LibraryTest {
 
         assertFalse(bookList.contains(harryPotter));
     }
+
+    @Test
+    public void shouldReturnFalseWhenCheckoutBook() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+
+        library.checkoutBook(harryPotter);
+
+        assertFalse(library.checkoutBook(harryPotter));
+    }
 }
