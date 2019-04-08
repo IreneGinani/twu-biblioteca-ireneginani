@@ -65,10 +65,10 @@ public class BibliotecaConsoleTest {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        String expectedOutput = "Title - Author - Year\n" +
-                                "Harry Potter and The Sorcerer's Stone - J.K Rowling - 1997\n" +
-                                "Homo Deus - Harari - 2015\n" +
-                                "Sapiens - Harari - 2011\n";
+        String expectedOutput = "Index - Title - Author - Year\n" +
+                                "0 - Harry Potter and The Sorcerer's Stone - J.K Rowling - 1997\n" +
+                                "1 - Homo Deus - Harari - 2015\n" +
+                                "2 - Sapiens - Harari - 2011\n";
 
         assertEquals(expectedOutput, bibliotecaConsole.processOption("1"));
     }
