@@ -32,6 +32,8 @@ public class BibliotecaConsole {
             for (Book book : library.getBookList()) {
                 sb.append(book.getTitle()).append(" - ").append(book.getAuthor()).append(" - ").append(book.getYear()).append("\n");
             }
+        } else if (option.equals("2")) {
+            sb.append("Thank you! Enjoy the book!\n");
         } else {
             sb.append("Please select a valid option!\n");
         }

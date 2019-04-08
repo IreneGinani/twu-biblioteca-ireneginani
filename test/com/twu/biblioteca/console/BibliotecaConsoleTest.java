@@ -31,7 +31,7 @@ public class BibliotecaConsoleTest {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
 
-        String successMessage = "Thank you! Enjoy the book!";
+        String successMessage = "Thank you! Enjoy the book!\n";
 
         assertEquals(successMessage, bibliotecaConsole.processOption("2"));
     }
