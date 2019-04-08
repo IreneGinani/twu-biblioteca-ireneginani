@@ -8,6 +8,8 @@ public class Book {
         this.author = author;
         this.title = title;
         this.year = year;
+        
+        available = true;
     }
 
     @Override
@@ -16,6 +18,7 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Objects.equals(author, book.author) &&
+                Objects.equals(available, book.available) &&
                 Objects.equals(title, book.title) &&
                 Objects.equals(year, book.year);
     }
@@ -33,6 +36,7 @@ public class Book {
     }
 
     private String author;
+    private boolean available;
     private String title;
     private int year;
 }
