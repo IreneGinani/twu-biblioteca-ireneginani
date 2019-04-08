@@ -82,4 +82,14 @@ public class BibliotecaConsole {
     }
 
     private Library library;
+
+    public String returnBook(String bookIndex) {
+        boolean output = library.returnBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+
+        if (output) {
+            return "Thank you for returning the book!\n";
+        }
+
+        return "";
+    }
 }
