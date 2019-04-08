@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LibraryTest {
     @Test
@@ -43,5 +42,18 @@ public class LibraryTest {
         Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         assertTrue(library.checkoutBook(harryPotter));
+    }
+
+    @Test
+    public void shouldReturnTheListOfAvailableBooks() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+
+        library.checkoutBook(harryPotter);
+
+        List<Book> bookList = library.getBookList();
+
+        assertFalse(bookList.contains(harryPotter));
     }
 }
