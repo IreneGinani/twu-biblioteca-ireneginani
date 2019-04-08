@@ -3,6 +3,8 @@ package com.twu.biblioteca.console;
 import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 
+import java.util.Scanner;
+
 public class BibliotecaConsole {
 
     public BibliotecaConsole(Library library) {
@@ -50,7 +52,12 @@ public class BibliotecaConsole {
         if (option.equals("1")) {
             return getFormattedBookList();
         } else if (option.equals("2")) {
-            return checkoutBook("");
+            System.out.println("Please, enter a book index");
+
+            Scanner scan = new Scanner(System.in);
+            String bookIndex = scan.next();
+
+            return checkoutBook(bookIndex);
         } else {
             return "Please select a valid option!\n";
         }
