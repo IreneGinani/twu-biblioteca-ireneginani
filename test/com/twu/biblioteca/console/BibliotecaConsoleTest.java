@@ -52,6 +52,18 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
+    public void shouldReturnSuccessMessageWhenReturningABook() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String successMessage = "Thank you for returning the book!\n";
+
+        bibliotecaConsole.checkoutBook("2");
+
+        assertEquals(successMessage, bibliotecaConsole.returnBook("2"));
+    }
+
+    @Test
     public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
