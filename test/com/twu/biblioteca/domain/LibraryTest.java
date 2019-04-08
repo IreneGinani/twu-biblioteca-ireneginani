@@ -9,6 +9,18 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
+
+    @Test
+    public void shouldReturnFalseWhenCheckoutSameBookTwice() {
+        Library library = new Library();
+
+        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+
+        library.checkoutBook(harryPotter);
+
+        assertFalse(library.checkoutBook(harryPotter));
+    }
+
     @Test
     public void shouldReturnListOfAllBooks() {
         Library library = new Library();
@@ -36,15 +48,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenCheckoutBook() {
-        Library library = new Library();
-
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
-
-        assertTrue(library.checkoutBook(harryPotter));
-    }
-
-    @Test
     public void shouldReturnTheListOfAvailableBooks() {
         Library library = new Library();
 
@@ -58,13 +61,11 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenCheckoutBook() {
+    public void shouldReturnTrueWhenCheckoutBook() {
         Library library = new Library();
 
         Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
-        library.checkoutBook(harryPotter);
-
-        assertFalse(library.checkoutBook(harryPotter));
+        assertTrue(library.checkoutBook(harryPotter));
     }
 }
