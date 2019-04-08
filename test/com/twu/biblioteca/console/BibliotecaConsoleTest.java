@@ -76,6 +76,16 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
+    public void shouldReturnUnsuccessfulMessageWhenReturningBook() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String unsuccessfulMessage = "That is not a valid book to return.\n";
+
+        assertEquals(unsuccessfulMessage, bibliotecaConsole.returnBook("2"));
+    }
+
+    @Test
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutABook() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
