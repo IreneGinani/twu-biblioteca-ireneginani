@@ -13,15 +13,13 @@ public class BibliotecaConsole {
     }
 
     public String checkoutBook(String bookIndex) {
-        int bookIndexInteger;
+        boolean output;
 
         try {
-            bookIndexInteger = Integer.parseInt(bookIndex);
-        } catch (NumberFormatException nfe) {
+            output = library.checkoutBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid book index!\n";
         }
-
-        boolean output = library.checkoutBook(library.getBookByIndex(bookIndexInteger));
 
         if (output) {
             return "Thank you! Enjoy the book!\n";
