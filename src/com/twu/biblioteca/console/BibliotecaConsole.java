@@ -53,9 +53,10 @@ public class BibliotecaConsole {
 
     public String getMainMenu() {
         return "Choose an option:\n" +
-                "(1) List of Books\n" +
+                "(1) List of books\n" +
                 "(2) Checkout a book\n" +
                 "(3) Return a book\n" +
+                "(4) List of movies\n" +
                 "(0) Quit\n";
     }
 
