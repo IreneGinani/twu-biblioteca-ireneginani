@@ -107,16 +107,6 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutAMovie() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
-        String errorMessage = "Please, enter a valid book index!\n";
-
-        assertEquals(errorMessage, bibliotecaConsole.processOption("5"));
-    }
-
-    @Test
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToReturnABook() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
