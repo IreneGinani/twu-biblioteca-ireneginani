@@ -1,12 +1,14 @@
 package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.Library;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class BibliotecaConsoleTest {
+
 
     @Test
     public void shouldNotReturnAnythingIfOptionIsQuit() {
@@ -39,6 +41,18 @@ public class BibliotecaConsoleTest {
                 "2 - Sapiens - Harari - 2011\n";
 
         assertEquals(expectedOutput, bibliotecaConsole.processOption("1"));
+    }
+
+    @Test
+    public void shouldReturnListOfAllMoviesWhenOptionSelectedIsFour() {
+        Library library = new Library();
+        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+
+        String expectedOutput = "Index - Name - Year - Director - Rating\n" +
+                "0 - Harry Potter and The Sorcerer's Stone - 2008 - David Yates - 10\n" +
+                "1 - Harry Potter and Chamber of Secrets - 2005 - David Yates - Unrating\n";
+
+        assertEquals(expectedOutput, bibliotecaConsole.processOption("4"));
     }
 
     @Test
