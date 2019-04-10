@@ -38,14 +38,7 @@ public class BibliotecaConsole {
         for (int i = 0; i < bookList.size(); i++) {
             Book book = bookList.get(i);
 
-            sb.append(book.getId())
-                .append(" - ")
-                .append(book.getTitle())
-                .append(" - ")
-                .append(book.getAuthor())
-                .append(" - ")
-                .append(book.getYear())
-                .append("\n");
+            sb.append(book.toString());
         }
 
         return sb.toString();

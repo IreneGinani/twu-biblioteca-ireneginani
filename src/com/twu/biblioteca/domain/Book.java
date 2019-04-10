@@ -44,4 +44,18 @@ public class Book {
         this.available = available;
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(id)
+                .append(" - ")
+                .append(title)
+                .append(" - ")
+                .append(author)
+                .append(" - ")
+                .append(year)
+                .append("\n");
+
+        return sb.toString();
+    }
 }
