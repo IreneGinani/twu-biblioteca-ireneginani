@@ -1,5 +1,6 @@
 package com.twu.biblioteca.console;
 
+import com.twu.biblioteca.domain.OptionsEnum;
 import sun.text.bidi.BidiLine;
 
 import java.util.Scanner;
@@ -24,20 +25,20 @@ public class Menu {
     }
 
     public String processOption(String option) {
-        if (option.equals("0")) {
+        if (option.equals(OptionsEnum.EXIT.value)) {
             return "";
         }
 
-        if (option.equals("1")) {
+        if (option.equals(OptionsEnum.BookList.value)) {
             return bibliotecaConsole.getFormattedBookList();
-        } else if (option.equals("2")) {
+        } else if (option.equals(OptionsEnum.CheckoutBook.value)) {
             System.out.println("Please, enter a book index");
 
             Scanner scan = new Scanner(System.in);
             String bookIndex = scan.next();
 
             return bibliotecaConsole.checkoutBook(bookIndex);
-        } else if (option.equals("3")) {
+        } else if (option.equals(OptionsEnum.ReturnBook.value)) {
             System.out.println("Please, enter a book index");
 
             Scanner scan = new Scanner(System.in);
