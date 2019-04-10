@@ -1,6 +1,6 @@
 package com.twu.biblioteca.domain;
 
-import com.twu.biblioteca.Service.LibraryService;
+import com.twu.biblioteca.service.LibraryService;
 import org.junit.Before;
 import org.junit.Test;
 
