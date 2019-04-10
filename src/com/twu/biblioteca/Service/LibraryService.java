@@ -1,9 +1,8 @@
-package com.twu.biblioteca.Service;
+package com.twu.biblioteca.service;
 
 import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 public class LibraryService {
@@ -11,16 +10,11 @@ public class LibraryService {
     private Library library = new Library();
     private List<Book> books = library.getBookList();
 
-    public LibraryService() throws FileNotFoundException {
-    }
 
     public boolean checkoutBook(Book book) {
         return changeBookAvailability(book, false);
     }
 
-    public boolean returnBook(Book book) {
-        return changeBookAvailability(book, true);
-    }
 
     public boolean changeBookAvailability(Book book, boolean availability){
 
@@ -37,4 +31,11 @@ public class LibraryService {
         return false;
 
     }
+
+    public boolean returnBook(Book book) {
+        return changeBookAvailability(book, true);
+    }
+
+    public Library getLibrary(){ return library; }
+
 }
