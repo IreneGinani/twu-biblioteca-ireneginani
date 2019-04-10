@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class Library {
 
+    private List<Book> books;
+
     public Library() {
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone", "J.K Rowling", 1997);
         Book homoDeus = new Book(1 , "Homo Deus", "Harari", 2015);
@@ -51,5 +53,4 @@ public class Library {
         return false;
     }
 
-    private List<Book> books;
 }
