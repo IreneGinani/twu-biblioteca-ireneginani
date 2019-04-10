@@ -1,26 +1,27 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.console.BibliotecaConsole;
-import com.twu.biblioteca.domain.Library;
+import com.twu.biblioteca.console.Menu;
+import com.twu.biblioteca.service.LibraryService;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String[] args) {
-        Library library = new Library();
+    public static void main(String[] args) throws FileNotFoundException {
+        LibraryService library = new LibraryService();
 
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+        Menu menu = new Menu();
 
-        System.out.println(bibliotecaConsole.getWelcomeMessage());
+        System.out.println(menu.getWelcomeMessage());
 
         while (true){
-            System.out.println(bibliotecaConsole.getMainMenu());
+            System.out.println(menu.getMainMenu());
 
             Scanner scan = new Scanner(System.in);
             String option = scan.next();
 
-            String output = bibliotecaConsole.processOption(option);
+            String output = menu.processOption(option);
 
             if (output.isEmpty()) {
                 break;
@@ -28,5 +29,7 @@ public class BibliotecaApp {
 
             System.out.print(output);
         }
+
+
     }
 }
