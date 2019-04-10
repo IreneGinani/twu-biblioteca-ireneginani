@@ -24,5 +24,4 @@ public class BookParserTest {
 
         assertEquals(books, parser.getBookList());
     }
-    }
 }
