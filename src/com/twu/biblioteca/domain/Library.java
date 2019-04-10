@@ -10,8 +10,9 @@ public class Library {
     private BookParser bookParser = new BookParser();
     private List<Book> books = bookParser.getBookList();
 
-    public Book getBookByIndex(int bookIndex) {
+    public Book getBookByIndex(int bookIndex) throws IndexOutOfBoundsException, NumberFormatException{
         return books.get(bookIndex);
+
     }
 
     public List<Book> getAvailableBookList() {
