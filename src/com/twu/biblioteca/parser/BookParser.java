@@ -13,19 +13,27 @@ public class BookParser {
 
     private List<Book> books = new ArrayList<>();
 
-    public BookParser() throws FileNotFoundException {
-        Scanner bookFile = new Scanner(new FileReader("src/com/twu/biblioteca/data/books.txt"));
+    public BookParser(){
+        try {
 
-        while (bookFile.hasNextLine()){
-            String line = bookFile.nextLine();
+            Scanner bookFile = new Scanner(new FileReader("src/com/twu/biblioteca/data/books.txt"));
 
-            System.out.println(line);
-            String [] bookAttributes = line.split(", ");
+            while (bookFile.hasNextLine()){
+                String line = bookFile.nextLine();
 
-            Book book = new Book(Integer.parseInt(bookAttributes[0]), bookAttributes[1], bookAttributes[2] ,Integer.parseInt(bookAttributes[3]));
+                System.out.println(line);
+                String [] bookAttributes = line.split(", ");
 
-            books.add(book);
+                Book book = new Book(Integer.parseInt(bookAttributes[0]), bookAttributes[1], bookAttributes[2] ,Integer.parseInt(bookAttributes[3]));
+
+                books.add(book);
+            }
+
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("No such file or directory");
         }
+
+
 
     }
 
