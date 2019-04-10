@@ -71,14 +71,14 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenCheckoutBook() {
+    public void shouldReturnSucessWhenCheckoutBook() {
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         assertTrue(library.checkoutBook(harryPotter));
     }
 
     @Test
-    public void shouldReturnTrueWhenReturningBook() {
+    public void shouldReturnWhenReturningBook() {
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
