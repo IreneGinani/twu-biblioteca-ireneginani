@@ -22,7 +22,7 @@ public class BookParser {
             System.out.println(line);
             String [] bookAttributes = line.split(", ");
 
-            Book book = new Book(bookAttributes[0], bookAttributes[1], Integer.parseInt(bookAttributes[2]));
+            Book book = new Book(Integer.parseInt(bookAttributes[0]), bookAttributes[1], bookAttributes[2] ,Integer.parseInt(bookAttributes[3]));
 
             books.add(book);
         }
@@ -30,7 +30,6 @@ public class BookParser {
     }
 
     public List<Book> getBookList() {
-
         return books;
     }
 }

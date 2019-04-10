@@ -52,17 +52,6 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
-    public void shouldReturnSuccessMessageWhenCheckingOutAMovie() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
-        String expectedOutput = "Index - Name - Year - Director - Rating\n" +
-                "0 - Harry Potter and The Sorcerer's Stone - 2008 - David Yates - 10\n";
-
-        assertEquals(expectedOutput, bibliotecaConsole.processOption("5"));
-    }
-
-    @Test
     public void shouldReturnSuccessMessageWhenReturningABook() {
         Library library = new Library();
         BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);

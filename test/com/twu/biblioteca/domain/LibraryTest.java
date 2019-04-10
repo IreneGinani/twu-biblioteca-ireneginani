@@ -14,7 +14,7 @@ public class LibraryTest {
     public void shouldReturnFalseWhenCheckoutSameBookTwice() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
 
@@ -25,7 +25,7 @@ public class LibraryTest {
     public void shouldReturnFalseWhenCheckoutNonExistingBook() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
+        Book harryPotter = new Book(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
 
         library.checkoutBook(harryPotter);
 
@@ -49,9 +49,9 @@ public class LibraryTest {
     public void shouldReturnListOfAllBooksWithTitleAuthorAndPublication() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
-        Book homoDeus = new Book("Homo Deus", "Harari", 2015);
-        Book sapiens = new Book("Sapiens", "Harari", 2011);
+        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone", "J.K Rowling", 1997);
+        Book homoDeus = new Book(1 , "Homo Deus", "Harari", 2015);
+        Book sapiens = new Book(2, "Sapiens", "Harari", 2011);
 
         List<Book> bookList = Arrays.asList(harryPotter, homoDeus, sapiens);
 
@@ -62,7 +62,7 @@ public class LibraryTest {
     public void shouldReturnTheListOfAvailableBooks() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
 
@@ -75,7 +75,7 @@ public class LibraryTest {
     public void shouldReturnTrueWhenCheckoutBook() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         assertTrue(library.checkoutBook(harryPotter));
     }
@@ -84,7 +84,7 @@ public class LibraryTest {
     public void shouldReturnTrueWhenReturningBook() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
         harryPotter.setAvailable(false);
@@ -96,7 +96,7 @@ public class LibraryTest {
     public void shouldReturnFalseWhenReturningNonExistingBook() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
+        Book harryPotter = new Book(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
 
         library.returnBook(harryPotter);
 
@@ -107,7 +107,7 @@ public class LibraryTest {
     public void shouldReturnFalseWhenReturningSameBookTwice() {
         Library library = new Library();
 
-        Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
         harryPotter.setAvailable(false);

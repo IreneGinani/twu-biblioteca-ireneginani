@@ -4,8 +4,15 @@ import java.util.Objects;
 
 public class Book {
 
-    public Book(String title, String author, int year) {
+    private String author;
+    private boolean available;
+    private int id;
+    private String title;
+    private int year;
+
+    public Book(int id, String title, String author, int year) {
         this.author = author;
+        this.id = id;
         this.title = title;
         this.year = year;
 
@@ -23,9 +30,9 @@ public class Book {
                 Objects.equals(year, book.year);
     }
 
-    public String getAuthor() {
-        return author;
-    }
+    public String getAuthor() { return author; }
+
+    public int getId() { return id; }
 
     public String getTitle() { return title; }
 
@@ -37,8 +44,4 @@ public class Book {
         this.available = available;
     }
 
-    private String author;
-    private boolean available;
-    private String title;
-    private int year;
 }

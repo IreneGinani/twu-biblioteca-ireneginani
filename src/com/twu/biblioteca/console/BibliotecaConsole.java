@@ -38,7 +38,7 @@ public class BibliotecaConsole {
         for (int i = 0; i < bookList.size(); i++) {
             Book book = bookList.get(i);
 
-            sb.append(i)
+            sb.append(book.getId())
                 .append(" - ")
                 .append(book.getTitle())
                 .append(" - ")
@@ -56,7 +56,6 @@ public class BibliotecaConsole {
                 "(1) List of books\n" +
                 "(2) Checkout a book\n" +
                 "(3) Return a book\n" +
-                "(4) List of movies\n" +
                 "(0) Quit\n";
     }
 
@@ -85,10 +84,6 @@ public class BibliotecaConsole {
             String bookIndex = scan.next();
 
             return returnBook(bookIndex);
-        } else if (option.equals("4")) {
-            return "Index - Name - Year - Director - Rating\n" +
-                    "0 - Harry Potter and The Sorcerer's Stone - 2008 - David Yates - 10\n" +
-                    "1 - Harry Potter and Chamber of Secrets - 2005 - David Yates - Unrating\n";
         } else {
             return "Please select a valid option!\n";
         }
