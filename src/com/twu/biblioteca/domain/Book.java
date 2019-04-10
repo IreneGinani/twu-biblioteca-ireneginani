@@ -24,10 +24,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(author, book.author) &&
-                Objects.equals(available, book.available) &&
-                Objects.equals(title, book.title) &&
-                Objects.equals(year, book.year);
+        return Objects.equals(id, book.id);
     }
 
     public String getAuthor() { return author; }
