@@ -4,6 +4,7 @@ import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class BookParserTest {
 
     @Test
-    public void shouldReturnFalseWhenCheckoutSameBookTwice() {
+    public void shouldReturnFalseWhenCheckoutSameBookTwice() throws FileNotFoundException {
         BookParser parser = new BookParser();
 
         Book harryPotter = new Book("Harry Potter and The Sorcerer's Stone", "J.K Rowling", 1997);
