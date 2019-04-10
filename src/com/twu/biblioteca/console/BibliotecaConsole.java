@@ -1,27 +1,29 @@
 package com.twu.biblioteca.console;
 
+import com.twu.biblioteca.service.LibraryService;
 import com.twu.biblioteca.domain.Book;
-import com.twu.biblioteca.domain.Library;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaConsole {
 
-    public BibliotecaConsole(Library library) {
-        this.library = library;
+    private LibraryService library;
+
+    public BibliotecaConsole() {
+        this.library = new LibraryService();
     }
 
     public String checkoutBook(String bookIndex) {
-        boolean output;
+        boolean checkoutSucceed;
 
         try {
-            output = library.checkoutBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+            checkoutSucceed = library.checkoutBook(library.getLibrary().getBookByIndex(Integer.parseInt(bookIndex)));
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid book index!\n";
         }
 
-        if (output) {
+        if (checkoutSucceed) {
             return "Thank you! Enjoy the book!\n";
         }
 
@@ -33,7 +35,7 @@ public class BibliotecaConsole {
 
         sb.append("Index - Title - Author - Year\n");
 
-        List<Book> bookList = library.getBookList();
+        List<Book> bookList = library.getLibrary().getAvailableBookList();
 
         for (int i = 0; i < bookList.size(); i++) {
             Book book = bookList.get(i);
@@ -44,56 +46,17 @@ public class BibliotecaConsole {
         return sb.toString();
     }
 
-    public String getMainMenu() {
-        return "Choose an option:\n" +
-                "(1) List of books\n" +
-                "(2) Checkout a book\n" +
-                "(3) Return a book\n" +
-                "(0) Quit\n";
-    }
-
-    public String getWelcomeMessage() {
-        return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-    }
-
-    public String processOption(String option) {
-        if (option.equals("0")) {
-            return "";
-        }
-
-        if (option.equals("1")) {
-            return getFormattedBookList();
-        } else if (option.equals("2")) {
-            System.out.println("Please, enter a book index");
-
-            Scanner scan = new Scanner(System.in);
-            String bookIndex = scan.next();
-
-            return checkoutBook(bookIndex);
-        } else if (option.equals("3")) {
-            System.out.println("Please, enter a book index");
-
-            Scanner scan = new Scanner(System.in);
-            String bookIndex = scan.next();
-
-            return returnBook(bookIndex);
-        } else {
-            return "Please select a valid option!\n";
-        }
-    }
-
-    private Library library;
 
     public String returnBook(String bookIndex) {
-        boolean output;
+        boolean returnSucceed;
 
         try {
-            output = library.returnBook(library.getBookByIndex(Integer.parseInt(bookIndex)));
+            returnSucceed = library.returnBook(library.getLibrary().getBookByIndex(Integer.parseInt(bookIndex)));
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid book index!\n";
         }
 
-        if (output) {
+        if (returnSucceed) {
             return "Thank you for returning the book!\n";
         }
 
