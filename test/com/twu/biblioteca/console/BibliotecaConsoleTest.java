@@ -1,6 +1,7 @@
 package com.twu.biblioteca.console;
 
-import com.twu.biblioteca.domain.Library;
+import com.twu.biblioteca.Service.LibraryService;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,11 +9,17 @@ import static org.junit.Assert.assertTrue;
 
 public class BibliotecaConsoleTest {
 
-    @Test
-    public void shouldNotReturnAnythingIfOptionIsQuit() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
+    LibraryService library;
+    BibliotecaConsole bibliotecaConsole;
 
+    @Before
+    public void initialization(){
+        library = new LibraryService();
+        bibliotecaConsole = new BibliotecaConsole(library);
+    }
+
+    @Test
+    public void shouldNotReturnAnythingIfOptionIsQuit(){
         String output = bibliotecaConsole.processOption("0");
 
         assertTrue(output.isEmpty());
@@ -20,19 +27,13 @@ public class BibliotecaConsoleTest {
 
     @Test
     public void shouldReturnInvalidOptionMessage() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
         String invalidOptionMessage = "Please select a valid option!\n";
 
         assertEquals(invalidOptionMessage, bibliotecaConsole.processOption("123"));
     }
 
     @Test
-    public void shouldReturnListOfAllBooksWhenOptionSelectedIsOne() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnListOfAllBooksWhenOptionSelectedIsOne()  {
         String expectedOutput = "Index - Title - Author - Year\n" +
                 "0 - Harry Potter and The Sorcerer's Stone - J.K Rowling - 1997\n" +
                 "1 - Homo Deus - Harari - 2015\n" +
@@ -43,19 +44,13 @@ public class BibliotecaConsoleTest {
 
     @Test
     public void shouldReturnSuccessMessageWhenCheckingOutABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
         String successMessage = "Thank you! Enjoy the book!\n";
 
         assertEquals(successMessage, bibliotecaConsole.checkoutBook("2"));
     }
 
     @Test
-    public void shouldReturnSuccessMessageWhenReturningABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnSuccessMessageWhenReturningABook()  {
         String successMessage = "Thank you for returning the book!\n";
 
         bibliotecaConsole.checkoutBook("2");
@@ -64,10 +59,7 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
-    public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook()  {
         bibliotecaConsole.checkoutBook("2");
 
         String unsuccessfulMessage = "Sorry, that book is not available!\n";
@@ -76,60 +68,42 @@ public class BibliotecaConsoleTest {
     }
 
     @Test
-    public void shouldReturnUnsuccessfulMessageWhenReturningBook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnUnsuccessfulMessageWhenReturningBook()  {
         String unsuccessfulMessage = "That is not a valid book to return.\n";
 
         assertEquals(unsuccessfulMessage, bibliotecaConsole.returnBook("2"));
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutABook()  {
         String errorMessage = "Please, enter a valid book index!\n";
 
         assertEquals(errorMessage, bibliotecaConsole.checkoutBook("10"));
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToReturnABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToReturnABook()  {
         String errorMessage = "Please, enter a valid book index!\n";
 
         assertEquals(errorMessage, bibliotecaConsole.returnBook("10"));
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenUsingNonNumericIndexToCheckoutABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnErrorMessageWhenUsingNonNumericIndexToCheckoutABook()  {
         String errorMessage = "Please, enter a valid book index!\n";
 
         assertEquals(errorMessage, bibliotecaConsole.checkoutBook("abc"));
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenUsingNonNumericIndexToReturnABook() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnErrorMessageWhenUsingNonNumericIndexToReturnABook()  {
         String errorMessage = "Please, enter a valid book index!\n";
 
         assertEquals(errorMessage, bibliotecaConsole.returnBook("abc"));
     }
 
     @Test
-    public void shouldReturnWelcomeMessage() {
-        Library library = new Library();
-        BibliotecaConsole bibliotecaConsole = new BibliotecaConsole(library);
-
+    public void shouldReturnWelcomeMessage()  {
         String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
 
         assertEquals(welcomeMessage, bibliotecaConsole.getWelcomeMessage());

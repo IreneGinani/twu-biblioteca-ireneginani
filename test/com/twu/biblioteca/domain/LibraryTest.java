@@ -1,5 +1,7 @@
 package com.twu.biblioteca.domain;
 
+import com.twu.biblioteca.Service.LibraryService;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -10,10 +12,15 @@ import static org.junit.Assert.*;
 
 public class LibraryTest {
 
+    LibraryService library;
+
+    @Before
+    public void initialization(){
+        library = new LibraryService();
+    }
+
     @Test
     public void shouldReturnFalseWhenCheckoutSameBookTwice() {
-        Library library = new Library();
-
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
@@ -23,8 +30,6 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnFalseWhenCheckoutNonExistingBook() {
-        Library library = new Library();
-
         Book harryPotter = new Book(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
 
         library.checkoutBook(harryPotter);
@@ -34,47 +39,39 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnListOfAllBooks() {
-        Library library = new Library();
-
         List<String> expectedBookTitleList =
                 Arrays.asList("Harry Potter and The Sorcerer's Stone",  "Homo Deus", "Sapiens");
 
         List<String> actualBookTitleList =
-                library.getBookList().stream().map(Book::getTitle).collect(Collectors.toList());
+                library.getLibrary().getBookList().stream().map(Book::getTitle).collect(Collectors.toList());
 
         assertEquals(expectedBookTitleList, actualBookTitleList);
     }
 
     @Test
-    public void shouldReturnListOfAllBooksWithTitleAuthorAndPublication() {
-        Library library = new Library();
-
+    public void shouldReturnListOfAllBooksWithTitleAuthorAndPublication(){
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone", "J.K Rowling", 1997);
         Book homoDeus = new Book(1 , "Homo Deus", "Harari", 2015);
         Book sapiens = new Book(2, "Sapiens", "Harari", 2011);
 
         List<Book> bookList = Arrays.asList(harryPotter, homoDeus, sapiens);
 
-        assertEquals(bookList, library.getBookList());
+        assertEquals(bookList, library.getLibrary().getBookList());
     }
 
     @Test
-    public void shouldReturnTheListOfAvailableBooks() {
-        Library library = new Library();
-
-        Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
+    public void shouldReturnTheListOfAvailableBooks(){
+       Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
 
-        List<Book> bookList = library.getBookList();
+        List<Book> bookList = library.getLibrary().getAvailableBookList();
 
         assertFalse(bookList.contains(harryPotter));
     }
 
     @Test
     public void shouldReturnTrueWhenCheckoutBook() {
-        Library library = new Library();
-
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         assertTrue(library.checkoutBook(harryPotter));
@@ -82,8 +79,6 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnTrueWhenReturningBook() {
-        Library library = new Library();
-
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
@@ -93,9 +88,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenReturningNonExistingBook() {
-        Library library = new Library();
-
+    public void shouldReturnFalseWhenReturningNonExistingBook(){
         Book harryPotter = new Book(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
 
         library.returnBook(harryPotter);
@@ -104,18 +97,13 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenReturningSameBookTwice() {
-        Library library = new Library();
-
+    public void shouldReturnFalseWhenReturningSameBookTwice(){
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         library.checkoutBook(harryPotter);
         harryPotter.setAvailable(false);
 
         library.returnBook(harryPotter);
-
-        library.checkoutBook(harryPotter);
-        harryPotter.setAvailable(false);
 
         assertFalse(library.returnBook(harryPotter));
     }
