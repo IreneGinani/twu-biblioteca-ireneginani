@@ -4,6 +4,7 @@ import com.twu.biblioteca.domain.LibraryItems;
 import com.twu.biblioteca.domain.Movie;
 import com.twu.biblioteca.service.LibraryService;
 import com.twu.biblioteca.domain.Book;
+import com.twu.biblioteca.service.Login;
 
 import java.util.List;
 import java.util.Scanner;
@@ -53,6 +54,11 @@ public class BibliotecaConsole {
             }
 
         return sb.toString();
+    }
+
+    public boolean Login(String username, String password){
+        Login login = new Login();
+        return login.Authenticate(username, password);
     }
 
     public String returnBook(String libraryIndex, LibraryItems libraryItem) {

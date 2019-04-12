@@ -5,8 +5,7 @@ import com.twu.biblioteca.domain.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BibliotecaConsoleTest{
 
@@ -110,17 +109,13 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shloudReturnSucessWhenUserLogin(){
-        String loggedMessage = "User: Mary";
-
-        assertEquals(loggedMessage, menu.getUser());
+        assertTrue(menu.getBibliotecaConsole().Login("Irene", "irene"));
 
     }
 
     @Test
     public void shloudReturnUnsucessWhenUserLogin(){
-        String loggedMessage = "Sorry, username or password incorrect";
-
-        assertEquals(loggedMessage, menu.getUser());
+        assertFalse(menu.getBibliotecaConsole().Login("Joaquim", "irene"));
 
     }
 
