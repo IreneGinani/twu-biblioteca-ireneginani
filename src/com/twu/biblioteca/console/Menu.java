@@ -1,5 +1,7 @@
 package com.twu.biblioteca.console;
 
+import com.twu.biblioteca.domain.Book;
+import com.twu.biblioteca.domain.Movie;
 import com.twu.biblioteca.domain.OptionsEnum;
 
 import java.util.Scanner;
@@ -29,7 +31,7 @@ public class Menu {
         }
 
         if (option.equals(OptionsEnum.BookList.value)) {
-            return bibliotecaConsole.getFormattedBookList();
+            return bibliotecaConsole.getFormattedLibraryItemsList(new Book());
         } else if (option.equals(OptionsEnum.CheckoutBook.value)) {
             System.out.println("Please, enter a book index");
 
@@ -45,7 +47,7 @@ public class Menu {
 
             return bibliotecaConsole.returnBook(bookIndex);
         } else if (option.equals(OptionsEnum.MovieList.value)) {
-            return bibliotecaConsole.getFormattedMovieList();
+            return bibliotecaConsole.getFormattedLibraryItemsList(new Movie());
         } else{
             return "Please select a valid option!\n";
         }

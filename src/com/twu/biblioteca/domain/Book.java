@@ -16,6 +16,10 @@ public class Book extends LibraryItems{
 
     }
 
+    public Book() {
+        super(new String(), true);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -19,6 +19,10 @@ public class Movie extends LibraryItems{
         setAvailable(true);
     }
 
+    public Movie() {
+        super(new String(), true);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

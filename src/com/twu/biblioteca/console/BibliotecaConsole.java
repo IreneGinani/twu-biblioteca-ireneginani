@@ -1,6 +1,7 @@
 package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.LibraryItems;
+import com.twu.biblioteca.domain.Movie;
 import com.twu.biblioteca.service.LibraryService;
 import com.twu.biblioteca.domain.Book;
 
@@ -32,28 +33,27 @@ public class BibliotecaConsole {
         return "Sorry, that book is not available!\n";
     }
 
-    public String getFormattedBookList() {
+    public String getFormattedLibraryItemsList(LibraryItems libraryItems) {
         StringBuilder sb = new StringBuilder();
+        List<LibraryItems> libraryItemsList;
 
-        sb.append("Index - Title - Author - Year\n");
+        if (libraryItems instanceof Book){
+            sb.append("Index - Title - Author - Year\n");
 
-        List<LibraryItems> bookList = library.getLibrary().getAvailableLibraryItemsList().stream().filter(b -> b instanceof Book).collect(Collectors.toList());
+            libraryItemsList = library.getLibrary().getAvailableLibraryItemsList().stream().filter(b -> b instanceof Book).collect(Collectors.toList());
+        } else {
+            sb.append("Index - Title - Author - Year\n");
 
-        for (int i = 0; i < bookList.size(); i++) {
-            LibraryItems book = bookList.get(i);
-
-            sb.append(book.toString());
+            libraryItemsList = library.getLibrary().getAvailableLibraryItemsList().stream().filter(b -> b instanceof Movie).collect(Collectors.toList());
         }
+            for (int i = 0; i < libraryItemsList.size(); i++) {
+                LibraryItems libraryItem = libraryItemsList.get(i);
+
+                sb.append(libraryItem.toString());
+            }
 
         return sb.toString();
     }
-
-    public String getFormattedMovieList() {
-        return "Index - Name - Director - Year - Rating\n" +
-                "0 - Harry Potter and The Sorcerer's Stone - David Yates - 2008 - 10\n" +
-                "1 - Harry Potter and Chamber of Secrets - David Yates - 2005 - 10\n";
-    }
-
 
     public String returnBook(String bookIndex) {
         boolean returnSucceed;
