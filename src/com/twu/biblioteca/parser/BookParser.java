@@ -25,7 +25,6 @@ public class BookParser {
             while (bookFile.hasNextLine()){
                 String line = bookFile.nextLine();
 
-                System.out.println(line);
                 String [] bookAttributes = line.split(", ");
 
                 Book book = new Book(Integer.parseInt(bookAttributes[0]), bookAttributes[1], bookAttributes[2] ,Integer.parseInt(bookAttributes[3]));

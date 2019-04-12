@@ -8,10 +8,26 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private String username;
+
     private BibliotecaConsole bibliotecaConsole = new BibliotecaConsole();
 
 
     public BibliotecaConsole getBibliotecaConsole(){ return bibliotecaConsole; }
+
+    public boolean Login() {
+        System.out.println("Username:");
+
+        Scanner scan = new Scanner(System.in);
+        String username = scan.next();
+
+        System.out.println("Password:");
+
+        String password = scan.next();
+        this.username = username;
+        return bibliotecaConsole.Login(username, password);
+
+    }
 
     public String getMainMenu() {
         return "Choose an option:\n" +
@@ -27,9 +43,6 @@ public class Menu {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
 
-    public String getUser() {
-        return "User: Mary";
-    }
 
     public String processOption(String option) {
         if (option.equals(OptionsEnum.EXIT.value)) {

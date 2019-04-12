@@ -24,7 +24,6 @@ public class MovieParser {
             while (movieFile.hasNextLine()){
                 String line = movieFile.nextLine();
 
-                System.out.println(line);
                 String [] movieAttributes = line.split(", ");
 
                 Movie movie = new Movie(Integer.parseInt(movieAttributes[0]), movieAttributes[1], movieAttributes[2] ,Integer.parseInt(movieAttributes[3]), movieAttributes[4]);
