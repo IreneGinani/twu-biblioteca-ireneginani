@@ -8,7 +8,6 @@ import com.twu.biblioteca.service.Login;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class BibliotecaConsole {
@@ -32,7 +31,7 @@ public class BibliotecaConsole {
             LibraryItems item = library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryItemIndex), libraryItem);
 
             checkoutSucceed = library.checkoutLibraryItems(item);
-            loans.put(username, item.getId() + " - " + item.getName());
+            loans.put(item.getId() + " - " + item.getName(), username);
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid item index!\n";
         }
@@ -84,7 +83,10 @@ public class BibliotecaConsole {
         }
 
         try {
-            returnSucceed = library.returnLibraryItem(library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryIndex), libraryItem));
+            LibraryItems item = library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryIndex), libraryItem);
+
+            returnSucceed = library.returnLibraryItem(item);
+            loans.remove(item.getId() + " - " + item.getName());
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid item index!\n";
         }
