@@ -17,20 +17,20 @@ public class BibliotecaConsole {
         this.library = new LibraryService();
     }
 
-    public String checkoutLibraryItems(String bookIndex) {
+    public String checkoutLibraryItems(String libraryItemIndex, LibraryItems libraryItem) {
         boolean checkoutSucceed;
 
         try {
-            checkoutSucceed = library.checkoutLibraryItems(library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(bookIndex)));
+            checkoutSucceed = library.checkoutLibraryItems(library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryItemIndex), libraryItem));
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
-            return "Please, enter a valid book index!\n";
+            return "Please, enter a valid item index!\n";
         }
 
         if (checkoutSucceed) {
-            return "Thank you! Enjoy the book!\n";
+            return "Thank you! Enjoy the item!\n";
         }
 
-        return "Sorry, that book is not available!\n";
+        return "Sorry, that item is not available!\n";
     }
 
     public String getFormattedLibraryItemsList(LibraryItems libraryItems) {
@@ -42,7 +42,7 @@ public class BibliotecaConsole {
 
             libraryItemsList = library.getLibrary().getAvailableLibraryItemsList().stream().filter(b -> b instanceof Book).collect(Collectors.toList());
         } else {
-            sb.append("Index - Title - Author - Year\n");
+            sb.append("Index - Title - Director - Year - Rating\n");
 
             libraryItemsList = library.getLibrary().getAvailableLibraryItemsList().stream().filter(b -> b instanceof Movie).collect(Collectors.toList());
         }
@@ -55,19 +55,19 @@ public class BibliotecaConsole {
         return sb.toString();
     }
 
-    public String returnBook(String bookIndex) {
+    public String returnBook(String libraryIndex, LibraryItems libraryItem) {
         boolean returnSucceed;
 
         try {
-            returnSucceed = library.returnLibraryItem(library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(bookIndex)));
+            returnSucceed = library.returnLibraryItem(library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryIndex), libraryItem));
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
-            return "Please, enter a valid book index!\n";
+            return "Please, enter a valid item index!\n";
         }
 
         if (returnSucceed) {
-            return "Thank you for returning the book!\n";
+            return "Thank you for returning the item!\n";
         }
 
-        return "That is not a valid book to return.\n";
+        return "That is not a valid item to return.\n";
     }
 }

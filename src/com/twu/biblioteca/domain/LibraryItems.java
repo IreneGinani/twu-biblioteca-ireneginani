@@ -7,10 +7,12 @@ public abstract class LibraryItems {
 
     private boolean available;
     private String name;
+    private int id;
 
-    public LibraryItems(String name, boolean available) {
+    public LibraryItems(int id, String name, boolean available) {
         this.available = available;
         this.name = name;
+        this.id = id;
     }
 
     public boolean isAvailable() {
@@ -20,6 +22,8 @@ public abstract class LibraryItems {
     public String getName() {
         return name;
     }
+
+    public int getId() { return id; }
 
     public void setAvailable(boolean available) {
         this.available = available;
