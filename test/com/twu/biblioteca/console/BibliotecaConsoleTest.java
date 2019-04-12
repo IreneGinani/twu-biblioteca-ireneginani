@@ -48,12 +48,16 @@ public class BibliotecaConsoleTest{
     public void shouldReturnSuccessMessageWhenCheckingOutABook() {
         String successMessage = "Thank you! Enjoy the item!\n";
 
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
+
         assertEquals(successMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book()));
     }
 
     @Test
     public void shouldReturnSuccessMessageWhenCheckingOutAMovie() {
         String successMessage = "Thank you! Enjoy the item!\n";
+
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
 
         assertEquals(successMessage, menu.getBibliotecaConsole().checkoutLibraryItems("0", new Movie()));
     }
@@ -62,6 +66,7 @@ public class BibliotecaConsoleTest{
     public void shouldReturnSuccessMessageWhenReturningABook()  {
         String successMessage = "Thank you for returning the item!\n";
 
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
         menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
 
         assertEquals(successMessage, menu.getBibliotecaConsole().returnBook("2", new Book()));
@@ -69,9 +74,10 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook()  {
-        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
-
         String unsuccessfulMessage = "Sorry, that item is not available!\n";
+
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
+        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
 
         assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book()));
     }
@@ -80,12 +86,16 @@ public class BibliotecaConsoleTest{
     public void shouldReturnUnsuccessfulMessageWhenReturningBook()  {
         String unsuccessfulMessage = "That is not a valid item to return.\n";
 
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
+
         assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().returnBook("2", new Book()));
     }
 
     @Test
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutABook()  {
         String errorMessage = "Please, enter a valid item index!\n";
+
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
 
         assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("10", new Book()));
     }
@@ -94,6 +104,8 @@ public class BibliotecaConsoleTest{
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToReturnABook()  {
         String errorMessage = "Please, enter a valid item index!\n";
 
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
+
         assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("10", new Book()));
     }
 
@@ -101,12 +113,16 @@ public class BibliotecaConsoleTest{
     public void shouldReturnErrorMessageWhenUsingNonNumericIndexToCheckoutABook()  {
         String errorMessage = "Please, enter a valid item index!\n";
 
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
+
         assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("abc", new Book()));
     }
 
     @Test
     public void shouldReturnErrorMessageWhenUsingNonNumericIndexToReturnABook()  {
         String errorMessage = "Please, enter a valid item index!\n";
+
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
 
         assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("abc", new Book()));
     }

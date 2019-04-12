@@ -79,6 +79,10 @@ public class BibliotecaConsole {
     public String returnBook(String libraryIndex, LibraryItems libraryItem) {
         boolean returnSucceed;
 
+        if (username == null){
+            return "You need Login!";
+        }
+
         try {
             returnSucceed = library.returnLibraryItem(library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryIndex), libraryItem));
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
