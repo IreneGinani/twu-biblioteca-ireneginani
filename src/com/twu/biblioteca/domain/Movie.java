@@ -5,13 +5,11 @@ import java.util.Objects;
 public class Movie extends LibraryItems{
 
     private String director;
-    private int id;
     private String rating;
     private int year;
 
     public Movie(int id, String title, String director, int year, String rating) {
-        super(title, true);
-        this.id = id;
+        super(id, title, true);
         this.director = director;
         this.year = year;
         this.rating = rating;
@@ -20,7 +18,7 @@ public class Movie extends LibraryItems{
     }
 
     public Movie() {
-        super(new String(), true);
+        super(0, new String(), true);
     }
 
     @Override
@@ -28,7 +26,23 @@ public class Movie extends LibraryItems{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return id == movie.id;
+        return getId() == movie.getId();
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(getId())
+                .append(" - ")
+                .append(getName())
+                .append(" - ")
+                .append(director)
+                .append(" - ")
+                .append(year)
+                .append(" - ")
+                .append(rating)
+                .append("\n");
+
+        return sb.toString();
+    }
 }

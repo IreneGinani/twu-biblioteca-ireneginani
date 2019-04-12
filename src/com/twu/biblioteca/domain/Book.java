@@ -5,19 +5,17 @@ import java.util.Objects;
 public class Book extends LibraryItems{
 
     private String author;
-    private int id;
     private int year;
 
     public Book(int id, String title, String author, int year) {
-        super(title, true);
+        super(id, title, true);
         this.author = author;
-        this.id = id;
         this.year = year;
 
     }
 
     public Book() {
-        super(new String(), true);
+        super(0, new String(), true);
     }
 
     @Override
@@ -25,13 +23,13 @@ public class Book extends LibraryItems{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(id, book.id);
+        return Objects.equals(getId(), book.getId());
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(id)
+        sb.append(getId())
                 .append(" - ")
                 .append(getName())
                 .append(" - ")
