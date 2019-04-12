@@ -9,21 +9,21 @@ import java.util.List;
 public class LibraryService {
 
     private Library library = new Library();
-    private List<Book> books = library.getBookList();
+    private List<LibraryItems> LibraryItems = library.getLibraryItemsList();
 
 
-    public boolean checkoutBook(LibraryItems book) {
-        return changeBookAvailability(book, false);
+    public boolean checkoutLibraryItems(LibraryItems LibraryItem) {
+        return changeLibraryItemAvailability(LibraryItem, false);
     }
 
 
-    public boolean changeBookAvailability(LibraryItems book, boolean availability){
+    public boolean changeLibraryItemAvailability(LibraryItems libraryItem, boolean availability){
 
-        for (int i = 0; i < books.size(); i++) {
-            Book currentBook = books.get(i);
+        for (int i = 0; i < LibraryItems.size(); i++) {
+            LibraryItems currentLibraryItem = LibraryItems.get(i);
 
-            if (book.equals(currentBook) && (currentBook.isAvailable()==!availability)) {
-                currentBook.setAvailable(availability);
+            if (libraryItem.equals(currentLibraryItem) && (currentLibraryItem.isAvailable()==!availability)) {
+                currentLibraryItem.setAvailable(availability);
                 return true;
             }
         }
@@ -32,8 +32,8 @@ public class LibraryService {
 
     }
 
-    public boolean returnBook(LibraryItems book) {
-        return changeBookAvailability(book, true);
+    public boolean returnLibraryItem(LibraryItems LibraryItem) {
+        return changeLibraryItemAvailability(LibraryItem, true);
     }
 
     public Library getLibrary(){ return library; }

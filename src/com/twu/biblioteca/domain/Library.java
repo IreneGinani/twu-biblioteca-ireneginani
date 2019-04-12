@@ -1,26 +1,35 @@
 package com.twu.biblioteca.domain;
 
 import com.twu.biblioteca.parser.BookParser;
+import com.twu.biblioteca.parser.MovieParser;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Library {
 
-    private BookParser bookParser = new BookParser();
-    private List<Book> books = bookParser.getBookList();
+    private List<LibraryItems> libraryItems = new ArrayList<>();
 
-    public Book getBookByIndex(int bookIndex) throws IndexOutOfBoundsException, NumberFormatException{
-        return books.get(bookIndex);
+    public Library() {
 
+        BookParser bookParser = new BookParser();
+        MovieParser movieParser = new MovieParser();
+
+        libraryItems.addAll(bookParser.getBookList());
+        libraryItems.addAll(movieParser.getMovieList());
     }
 
-    public List<Book> getAvailableBookList() {
-        return books.stream().filter(Book::isAvailable).collect(Collectors.toList());
+    public LibraryItems getLibraryItemsByIndex(int bookIndex) throws IndexOutOfBoundsException, NumberFormatException{
+        return libraryItems.get(bookIndex);
     }
 
-    public List<Book> getBookList() {
-        return books.stream().collect(Collectors.toList());
+    public List<LibraryItems> getAvailableLibraryItemsList() {
+        return libraryItems.stream().filter(LibraryItems::isAvailable).collect(Collectors.toList());
+    }
+
+    public List<LibraryItems> getLibraryItemsList() {
+        return libraryItems.stream().collect(Collectors.toList());
     }
 
 }
