@@ -71,7 +71,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnSucessWhencheckoutLibraryItems() {
+    public void shouldReturnSucessWhencheckoutBook() {
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
         assertTrue(library.checkoutLibraryItems(harryPotter));
@@ -97,6 +97,15 @@ public class LibraryTest {
     @Test
     public void shouldReturnFalseWhenReturningNonExistingBook(){
         Book harryPotter = new Book(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
+
+        library.returnLibraryItem(harryPotter);
+
+        assertFalse(library.returnLibraryItem(harryPotter));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenReturningNonExistingMovie(){
+        Movie harryPotter = new Movie(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998, "9");
 
         library.returnLibraryItem(harryPotter);
 
