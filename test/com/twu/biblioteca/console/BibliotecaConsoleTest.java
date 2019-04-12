@@ -1,9 +1,7 @@
 package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.Book;
-import com.twu.biblioteca.domain.LibraryItems;
 import com.twu.biblioteca.domain.Movie;
-import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -139,12 +137,13 @@ public class BibliotecaConsoleTest{
     @Test
     public void shloudReturnLoanList(){
         HashMap<String, String> loans = new HashMap<String, String>() {{
-            put("904-8394", "2 - Sapiens");
+            put("2 - Sapiens", "904-8394");
         }};
 
         menu.getBibliotecaConsole().Login("904-8394", "irene");
+        menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
+        menu.getBibliotecaConsole().returnBook("0", new Book());
         menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
-
 
         assertEquals(loans, menu.getBibliotecaConsole().getLoans());
     }
