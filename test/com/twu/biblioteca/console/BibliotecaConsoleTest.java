@@ -1,5 +1,7 @@
 package com.twu.biblioteca.console;
 
+import com.twu.biblioteca.domain.Book;
+import com.twu.biblioteca.domain.Movie;
 import com.twu.biblioteca.service.LibraryService;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,62 +44,69 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shouldReturnSuccessMessageWhenCheckingOutABook() {
-        String successMessage = "Thank you! Enjoy the book!\n";
+        String successMessage = "Thank you! Enjoy the item!\n";
 
-        assertEquals(successMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2"));
+        assertEquals(successMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book()));
+    }
+
+    @Test
+    public void shouldReturnSuccessMessageWhenCheckingOutAMovie() {
+        String successMessage = "Thank you! Enjoy the item!\n";
+
+        assertEquals(successMessage, menu.getBibliotecaConsole().checkoutLibraryItems("0", new Movie()));
     }
 
     @Test
     public void shouldReturnSuccessMessageWhenReturningABook()  {
-        String successMessage = "Thank you for returning the book!\n";
+        String successMessage = "Thank you for returning the item!\n";
 
-        menu.getBibliotecaConsole().checkoutLibraryItems("2");
+        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
 
-        assertEquals(successMessage, menu.getBibliotecaConsole().returnBook("2"));
+        assertEquals(successMessage, menu.getBibliotecaConsole().returnBook("2", new Book()));
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook()  {
-        menu.getBibliotecaConsole().checkoutLibraryItems("2");
+        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
 
-        String unsuccessfulMessage = "Sorry, that book is not available!\n";
+        String unsuccessfulMessage = "Sorry, that item is not available!\n";
 
-        assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2"));
+        assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book()));
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenReturningBook()  {
-        String unsuccessfulMessage = "That is not a valid book to return.\n";
+        String unsuccessfulMessage = "That is not a valid item to return.\n";
 
-        assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().returnBook("2"));
+        assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().returnBook("2", new Book()));
     }
 
     @Test
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutABook()  {
-        String errorMessage = "Please, enter a valid book index!\n";
+        String errorMessage = "Please, enter a valid item index!\n";
 
-        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("10"));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("10", new Book()));
     }
 
     @Test
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToReturnABook()  {
-        String errorMessage = "Please, enter a valid book index!\n";
+        String errorMessage = "Please, enter a valid item index!\n";
 
-        assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("10"));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("10", new Book()));
     }
 
     @Test
     public void shouldReturnErrorMessageWhenUsingNonNumericIndexToCheckoutABook()  {
-        String errorMessage = "Please, enter a valid book index!\n";
+        String errorMessage = "Please, enter a valid item index!\n";
 
-        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("abc"));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("abc", new Book()));
     }
 
     @Test
     public void shouldReturnErrorMessageWhenUsingNonNumericIndexToReturnABook()  {
-        String errorMessage = "Please, enter a valid book index!\n";
+        String errorMessage = "Please, enter a valid item index!\n";
 
-        assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("abc"));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("abc", new Book()));
     }
 
     @Test

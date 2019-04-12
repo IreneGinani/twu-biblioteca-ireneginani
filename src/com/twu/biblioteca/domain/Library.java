@@ -20,8 +20,8 @@ public class Library {
         libraryItems.addAll(movieParser.getMovieList());
     }
 
-    public LibraryItems getLibraryItemsByIndex(int bookIndex) throws IndexOutOfBoundsException, NumberFormatException{
         return libraryItems.get(bookIndex);
+    public LibraryItems getLibraryItemsByIndex(int libraryItemIndex, LibraryItems libraryItem) throws IndexOutOfBoundsException, NumberFormatException{
     }
 
     public List<LibraryItems> getAvailableLibraryItemsList() {
