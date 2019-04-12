@@ -131,18 +131,25 @@ public class BibliotecaConsoleTest{
 
 
         assertEquals(loans, menu.getBibliotecaConsole().getLoans());
-
     }
 
     @Test
     public void shloudReturnSucessWhenUserLogin(){
         assertTrue(menu.getBibliotecaConsole().Login("904-8394", "irene"));
-
     }
 
     @Test
-    public void shloudReturnUnsucessWhenUserLogin(){
+    public void shloudReturnUnsucessfulWhenUserLogin(){
         assertFalse(menu.getBibliotecaConsole().Login("904-8363", "irene"));
+    }
+
+    @Test
+    public void shloudReturnUnsuccessfulMessageWhenTryToCheckoutWithoutLogin(){
+        String unsuccessMessage = "You need Login!";
+
+        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
+
+        assertEquals(unsuccessMessage, menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book()));
 
     }
 
