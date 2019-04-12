@@ -27,6 +27,10 @@ public class Menu {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
 
+    public String getUser() {
+        return "";
+    }
+
     public String processOption(String option) {
         if (option.equals(OptionsEnum.EXIT.value)) {
             return "";

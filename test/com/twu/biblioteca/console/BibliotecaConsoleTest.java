@@ -2,7 +2,6 @@ package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Movie;
-import com.twu.biblioteca.service.LibraryService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -110,9 +109,18 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
+    public void shloudReturnUserLogged(){
+        String loggedMessage = "User logged with success, choose your option";
+
+        assertEquals(loggedMessage, menu.getUser());
+
+    }
+
+    @Test
     public void shouldReturnWelcomeMessage()  {
         String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
 
         assertEquals(welcomeMessage, menu.getWelcomeMessage());
     }
+
 }
