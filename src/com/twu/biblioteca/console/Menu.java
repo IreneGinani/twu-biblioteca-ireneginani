@@ -28,7 +28,7 @@ public class Menu {
     }
 
     public String getUser() {
-        return "User logged with success, choose your option";
+        return "User: Mary";
     }
 
     public String processOption(String option) {

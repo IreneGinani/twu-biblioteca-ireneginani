@@ -116,6 +116,9 @@ public class BibliotecaConsoleTest{
 
     }
 
+    @Test
+    public void shloudReturnUnsucessWhenUserLogin(){
+        String loggedMessage = "Sorry, username or password incorrect";
 
         assertEquals(loggedMessage, menu.getUser());
 
