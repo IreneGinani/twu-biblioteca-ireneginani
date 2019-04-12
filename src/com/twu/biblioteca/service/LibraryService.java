@@ -1,6 +1,5 @@
 package com.twu.biblioteca.service;
 
-import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
 import com.twu.biblioteca.domain.LibraryItems;
 
@@ -10,7 +9,6 @@ public class LibraryService {
 
     private Library library = new Library();
     private List<LibraryItems> LibraryItems = library.getLibraryItemsList();
-
 
     public boolean checkoutLibraryItems(LibraryItems LibraryItem) {
         return changeLibraryItemAvailability(LibraryItem, false);

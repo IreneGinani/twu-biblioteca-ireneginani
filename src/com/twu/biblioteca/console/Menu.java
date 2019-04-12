@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private String username;
-
     private BibliotecaConsole bibliotecaConsole = new BibliotecaConsole();
 
 
@@ -24,7 +22,7 @@ public class Menu {
         System.out.println("Password:");
 
         String password = scan.next();
-        this.username = username;
+
         return bibliotecaConsole.Login(username, password);
 
     }
