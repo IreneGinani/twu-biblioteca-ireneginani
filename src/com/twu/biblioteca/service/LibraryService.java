@@ -2,6 +2,7 @@ package com.twu.biblioteca.service;
 
 import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.domain.Library;
+import com.twu.biblioteca.domain.LibraryItems;
 
 import java.util.List;
 
@@ -11,12 +12,12 @@ public class LibraryService {
     private List<Book> books = library.getBookList();
 
 
-    public boolean checkoutBook(Book book) {
+    public boolean checkoutBook(LibraryItems book) {
         return changeBookAvailability(book, false);
     }
 
 
-    public boolean changeBookAvailability(Book book, boolean availability){
+    public boolean changeBookAvailability(LibraryItems book, boolean availability){
 
         for (int i = 0; i < books.size(); i++) {
             Book currentBook = books.get(i);
@@ -31,7 +32,7 @@ public class LibraryService {
 
     }
 
-    public boolean returnBook(Book book) {
+    public boolean returnBook(LibraryItems book) {
         return changeBookAvailability(book, true);
     }
 

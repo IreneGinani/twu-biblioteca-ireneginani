@@ -78,6 +78,13 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldReturnSucessWhenCheckoutMovie() {
+        Movie harryPotter = new Movie(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997, "10");
+
+        assertTrue(library.checkoutBook(harryPotter));
+    }
+
+    @Test
     public void shouldReturnWhenReturningBook() {
         Book harryPotter = new Book(0, "Harry Potter and The Sorcerer's Stone","J.K Rowling", 1997);
 
