@@ -144,12 +144,22 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnUnsuccessfulMessageWhenTryToCheckoutWithoutLogin(){
-        String unsuccessMessage = "You need Login!";
+    public void shloudReturnErrorMessageWhenTryToCheckoutWithoutLogin(){
+        String errorMessage = "You need Login!";
 
-        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
+        menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
 
-        assertEquals(unsuccessMessage, menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book()));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book()));
+
+    }
+
+    @Test
+    public void shloudReturnErrorMessageWhenTryToReturnWithoutLogin(){
+        String errorMessage = "You need Login!";
+
+        menu.getBibliotecaConsole().returnBook("0", new Book());
+
+        assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("0", new Book()));
 
     }
 
