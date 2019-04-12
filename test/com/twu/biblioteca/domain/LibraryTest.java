@@ -29,8 +29,26 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldReturnFalseWhenCheckoutSameMovieTwice() {
+        Movie harryPotter = new Movie(0, "Harry Potter and Chamber of Secrets", "Davide Yates", 1998, "10");
+
+        library.checkoutLibraryItems(harryPotter);
+
+        assertFalse(library.checkoutLibraryItems(harryPotter));
+    }
+
+    @Test
     public void shouldReturnFalseWhenCheckoutNonExistingBook() {
         Book harryPotter = new Book(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998);
+
+        library.checkoutLibraryItems(harryPotter);
+
+        assertFalse(library.checkoutLibraryItems(harryPotter));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenCheckoutNonExistingMovie(){
+        Movie harryPotter = new Movie(0, "Harry Potter and Chamber of Secrets", "J.K Rowling", 1998, "9");
 
         library.checkoutLibraryItems(harryPotter);
 
