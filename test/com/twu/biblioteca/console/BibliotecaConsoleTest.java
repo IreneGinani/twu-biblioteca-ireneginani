@@ -108,6 +108,14 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
+    public void shouldReturnLibrarianMenu()  {
+        String librarianMenu = "(1)List of checkouts and returns\n" +
+                "(0) Quit\n";
+
+        assertEquals(librarianMenu, menu.getLibrarianMenu());
+    }
+
+    @Test
     public void shloudReturnSucessWhenUserLogin(){
         assertTrue(menu.getBibliotecaConsole().Login("Irene", "irene"));
 

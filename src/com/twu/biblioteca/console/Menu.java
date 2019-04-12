@@ -29,6 +29,10 @@ public class Menu {
 
     }
 
+    public String getLibrarianMenu(){
+        return "";
+    }
+
     public String getMainMenu() {
         return "Choose an option:\n" +
                 "(1) List of books\n" +
