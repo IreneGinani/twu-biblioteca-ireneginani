@@ -30,7 +30,9 @@ public class Menu {
     }
 
     public String getLibrarianMenu(){
-        return "";
+        return "Choose an option:\n" +
+                "(1) Checkouts and returns list\n" +
+                "(0) Quit\n";
     }
 
     public String getMainMenu() {

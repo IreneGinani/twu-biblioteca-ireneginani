@@ -109,7 +109,8 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shouldReturnLibrarianMenu()  {
-        String librarianMenu = "(1)List of checkouts and returns\n" +
+        String librarianMenu = "Choose an option:\n" +
+                "(1) Checkouts and returns list\n" +
                 "(0) Quit\n";
 
         assertEquals(librarianMenu, menu.getLibrarianMenu());
