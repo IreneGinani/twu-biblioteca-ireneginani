@@ -118,13 +118,13 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shloudReturnSucessWhenUserLogin(){
-        assertTrue(menu.getBibliotecaConsole().Login("Irene", "irene"));
+        assertTrue(menu.getBibliotecaConsole().Login("904-8394", "irene"));
 
     }
 
     @Test
     public void shloudReturnUnsucessWhenUserLogin(){
-        assertFalse(menu.getBibliotecaConsole().Login("Joaquim", "irene"));
+        assertFalse(menu.getBibliotecaConsole().Login("904-8363", "irene"));
 
     }
 
