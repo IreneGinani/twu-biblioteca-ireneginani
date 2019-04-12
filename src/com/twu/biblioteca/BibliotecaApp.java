@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.console.Menu;
-import com.twu.biblioteca.service.LibraryService;
-
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -14,18 +11,27 @@ public class BibliotecaApp {
         System.out.println(menu.getWelcomeMessage());
 
         while (true){
-            System.out.println(menu.getMainMenu());
 
-            Scanner scan = new Scanner(System.in);
-            String option = scan.next();
+            if (menu.Login()) {
+                System.out.println(menu.getMainMenu());
 
-            String output = menu.processOption(option);
+                Scanner scan = new Scanner(System.in);
+                String option = scan.next();
 
-            if (output.isEmpty()) {
+
+                String output = menu.processOption(option);
+
+                if (output.isEmpty()) {
+                    break;
+                }
+
+                System.out.print(output);
+
+            } else {
+                System.out.print("Sorry, username or password wrong\n");
                 break;
             }
 
-            System.out.print(output);
         }
 
 
