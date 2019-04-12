@@ -23,7 +23,6 @@ public class LibraryService {
 
             if (book.equals(currentBook) && (currentBook.isAvailable()==!availability)) {
                 currentBook.setAvailable(availability);
-
                 return true;
             }
         }
