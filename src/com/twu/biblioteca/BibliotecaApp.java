@@ -8,9 +8,7 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        LibraryService library = new LibraryService();
-
+    public static void main(String[] args) {
         Menu menu = new Menu();
 
         System.out.println(menu.getWelcomeMessage());

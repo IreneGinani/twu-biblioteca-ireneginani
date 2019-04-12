@@ -18,6 +18,8 @@ public class Menu {
                 "(1) List of books\n" +
                 "(2) Checkout a book\n" +
                 "(3) Return a book\n" +
+                "(4) List of movies\n" +
+                "(5) Checkout a movie\n" +
                 "(0) Quit\n";
     }
 
@@ -38,16 +40,23 @@ public class Menu {
             Scanner scan = new Scanner(System.in);
             String bookIndex = scan.next();
 
-            return bibliotecaConsole.checkoutLibraryItems(bookIndex);
+            return bibliotecaConsole.checkoutLibraryItems(bookIndex, new Book());
         } else if (option.equals(OptionsEnum.ReturnBook.value)) {
             System.out.println("Please, enter a book index");
 
             Scanner scan = new Scanner(System.in);
             String bookIndex = scan.next();
 
-            return bibliotecaConsole.returnBook(bookIndex);
+            return bibliotecaConsole.returnBook(bookIndex, new Book());
         } else if (option.equals(OptionsEnum.MovieList.value)) {
             return bibliotecaConsole.getFormattedLibraryItemsList(new Movie());
+        } else if (option.equals(OptionsEnum.CheckoutMovie.value)) {
+            System.out.println("Please, enter a movie index");
+
+            Scanner scan = new Scanner(System.in);
+            String movieIndex = scan.next();
+
+            return bibliotecaConsole.checkoutLibraryItems(movieIndex, new Movie());
         } else{
             return "Please select a valid option!\n";
         }
