@@ -1,7 +1,6 @@
 package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.OptionsEnum;
-import sun.text.bidi.BidiLine;
 
 import java.util.Scanner;
 

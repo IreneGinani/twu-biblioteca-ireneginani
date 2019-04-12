@@ -41,6 +41,16 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
+    public void shouldReturnListOfAllMoviesWhenOptionSelectedIsFour()  {
+        String expectedOutput = "Index - Name - Director - Year - Rating\n" +
+                "0 - Harry Potter and The Sorcerer's Stone - David Yates - 2008 - 10\n" +
+                "1 - Harry Potter and Chamber of Secrets - David Yates - 2005 - 10\n";
+
+        assertEquals(expectedOutput, menu.processOption("4"));
+    }
+
+
+    @Test
     public void shouldReturnSuccessMessageWhenCheckingOutABook() {
         String successMessage = "Thank you! Enjoy the book!\n";
 
