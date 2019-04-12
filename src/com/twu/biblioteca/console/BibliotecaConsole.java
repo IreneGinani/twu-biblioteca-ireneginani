@@ -24,6 +24,10 @@ public class BibliotecaConsole {
     public String checkoutLibraryItems(String libraryItemIndex, LibraryItems libraryItem) {
         boolean checkoutSucceed;
 
+        if (username == null){
+            return "You need Login!";
+        }
+
         try {
             LibraryItems item = library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryItemIndex), libraryItem);
 
