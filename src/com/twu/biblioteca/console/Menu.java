@@ -44,7 +44,11 @@ public class Menu {
             String bookIndex = scan.next();
 
             return bibliotecaConsole.returnBook(bookIndex);
-        } else {
+        } else if (option.equals(OptionsEnum.MovieList.value)) {
+            return "Index - Name - Director - Year - Rating\n" +
+                "0 - Harry Potter and The Sorcerer's Stone - David Yates - 2008 - 10\n" +
+                "1 - Harry Potter and Chamber of Secrets - David Yates - 2005 - 10\n";
+        } else{
             return "Please select a valid option!\n";
         }
     }
