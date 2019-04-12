@@ -41,38 +41,28 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shouldReturnListOfAllMoviesWhenOptionSelectedIsFour()  {
-        String expectedOutput = "Index - Name - Director - Year - Rating\n" +
-                "0 - Harry Potter and The Sorcerer's Stone - David Yates - 2008 - 10\n" +
-                "1 - Harry Potter and Chamber of Secrets - David Yates - 2005 - 10\n";
-
-        assertEquals(expectedOutput, menu.processOption("4"));
-    }
-
-
-    @Test
     public void shouldReturnSuccessMessageWhenCheckingOutABook() {
         String successMessage = "Thank you! Enjoy the book!\n";
 
-        assertEquals(successMessage, menu.getBibliotecaConsole().checkoutBook("2"));
+        assertEquals(successMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2"));
     }
 
     @Test
     public void shouldReturnSuccessMessageWhenReturningABook()  {
         String successMessage = "Thank you for returning the book!\n";
 
-        menu.getBibliotecaConsole().checkoutBook("2");
+        menu.getBibliotecaConsole().checkoutLibraryItems("2");
 
         assertEquals(successMessage, menu.getBibliotecaConsole().returnBook("2"));
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenCheckingOutABook()  {
-        menu.getBibliotecaConsole().checkoutBook("2");
+        menu.getBibliotecaConsole().checkoutLibraryItems("2");
 
         String unsuccessfulMessage = "Sorry, that book is not available!\n";
 
-        assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().checkoutBook("2"));
+        assertEquals(unsuccessfulMessage, menu.getBibliotecaConsole().checkoutLibraryItems("2"));
     }
 
     @Test
@@ -86,7 +76,7 @@ public class BibliotecaConsoleTest{
     public void shouldReturnErrorMessageWhenUsingIndexOutOfBoundToCheckoutABook()  {
         String errorMessage = "Please, enter a valid book index!\n";
 
-        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutBook("10"));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("10"));
     }
 
     @Test
@@ -100,7 +90,7 @@ public class BibliotecaConsoleTest{
     public void shouldReturnErrorMessageWhenUsingNonNumericIndexToCheckoutABook()  {
         String errorMessage = "Please, enter a valid book index!\n";
 
-        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutBook("abc"));
+        assertEquals(errorMessage, menu.getBibliotecaConsole().checkoutLibraryItems("abc"));
     }
 
     @Test

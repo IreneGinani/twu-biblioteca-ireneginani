@@ -14,6 +14,10 @@ public class BookParser {
     private List<Book> books = new ArrayList<>();
 
     public BookParser(){
+        bookParser();
+    }
+
+    public List<Book> bookParser(){
         try {
 
             Scanner bookFile = new Scanner(new FileReader("src/com/twu/biblioteca/data/books.txt"));
@@ -33,8 +37,7 @@ public class BookParser {
             System.out.println("No such file or directory");
         }
 
-
-
+        return books;
     }
 
     public List<Book> getBookList() {

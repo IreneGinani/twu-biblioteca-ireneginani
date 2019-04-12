@@ -36,7 +36,7 @@ public class Menu {
             Scanner scan = new Scanner(System.in);
             String bookIndex = scan.next();
 
-            return bibliotecaConsole.checkoutBook(bookIndex);
+            return bibliotecaConsole.checkoutLibraryItems(bookIndex);
         } else if (option.equals(OptionsEnum.ReturnBook.value)) {
             System.out.println("Please, enter a book index");
 
