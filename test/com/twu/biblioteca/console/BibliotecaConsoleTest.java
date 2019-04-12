@@ -109,8 +109,13 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnUserLogged(){
-        String loggedMessage = "User logged with success, choose your option";
+    public void shloudReturnSucessWhenUserLogin(){
+        String loggedMessage = "User: Mary";
+
+        assertEquals(loggedMessage, menu.getUser());
+
+    }
+
 
         assertEquals(loggedMessage, menu.getUser());
 
