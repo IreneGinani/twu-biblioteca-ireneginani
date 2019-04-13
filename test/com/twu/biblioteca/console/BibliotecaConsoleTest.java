@@ -128,7 +128,9 @@ public class BibliotecaConsoleTest{
     @Test
     public void shouldReturnLibrarianMenu()  {
         String librarianMenu = "Choose an option:\n" +
-                "(1) Checkouts and returns list\n" +
+                "(2) Checkout a book\n" +
+                "(3) Return a book\n" +
+                "(6) Checkouts and returns list\n" +
                 "(0) Quit\n";
 
         assertEquals(librarianMenu, menu.getLibrarianMenu());
@@ -136,7 +138,7 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shloudReturnLoanList(){
-        String loans = "{2 - Sapiens=904-8394}";
+        String loans = "{2 - Sapiens=904-8394}\n";
 
         menu.getBibliotecaConsole().Login("904-8394", "irene");
         menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());

@@ -13,27 +13,8 @@ public class Menu {
 
     public BibliotecaConsole getBibliotecaConsole(){ return bibliotecaConsole; }
 
-    public boolean Login() {
-        System.out.println("Username:");
 
-        Scanner scan = new Scanner(System.in);
-        String username = scan.next();
-
-        System.out.println("Password:");
-
-        String password = scan.next();
-
-        return bibliotecaConsole.Login(username, password);
-
-    }
-
-    public String getLibrarianMenu(){
-        return "Choose an option:\n" +
-                "(1) Checkouts and returns list\n" +
-                "(0) Quit\n";
-    }
-
-    public String getMainMenu() {
+    public String getCustomerMenu(){
         return "Choose an option:\n" +
                 "(1) List of books\n" +
                 "(2) Checkout a book\n" +
@@ -43,10 +24,38 @@ public class Menu {
                 "(0) Quit\n";
     }
 
+    public String getLibrarianMenu(){
+        return "Choose an option:\n" +
+                "(2) Checkout a book\n" +
+                "(3) Return a book\n" +
+                "(6) Checkouts and returns list\n" +
+                "(0) Quit\n";
+    }
+
+    public String getMainMenu() {
+        if (bibliotecaConsole.getUserRole().equals("librarian")){
+            return getLibrarianMenu();
+        }
+        return getCustomerMenu();
+    }
+
     public String getWelcomeMessage() {
         return "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     }
 
+    public boolean Login() {
+            System.out.println("Username:");
+
+            Scanner scan = new Scanner(System.in);
+            String username = scan.next();
+
+            System.out.println("Password:");
+
+            String password = scan.next();
+
+        return bibliotecaConsole.Login(username, password);
+
+    }
 
     public String processOption(String option) {
         if (option.equals(OptionsEnum.EXIT.value)) {
@@ -78,6 +87,8 @@ public class Menu {
             String movieIndex = scan.next();
 
             return bibliotecaConsole.checkoutLibraryItems(movieIndex, new Movie());
+        } else if (option.equals(OptionsEnum.LoanList.value)) {
+            return bibliotecaConsole.getLoans();
         } else{
             return "Please select a valid option!\n";
         }
