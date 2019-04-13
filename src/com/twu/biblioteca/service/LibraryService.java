@@ -14,7 +14,6 @@ public class LibraryService {
         return changeLibraryItemAvailability(LibraryItem, false);
     }
 
-
     public boolean changeLibraryItemAvailability(LibraryItems libraryItem, boolean availability){
 
         for (int i = 0; i < LibraryItems.size(); i++) {
