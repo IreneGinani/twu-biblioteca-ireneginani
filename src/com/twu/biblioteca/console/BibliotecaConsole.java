@@ -2,6 +2,7 @@ package com.twu.biblioteca.console;
 
 import com.twu.biblioteca.domain.LibraryItems;
 import com.twu.biblioteca.domain.Movie;
+import com.twu.biblioteca.domain.User;
 import com.twu.biblioteca.service.LibraryService;
 import com.twu.biblioteca.domain.Book;
 import com.twu.biblioteca.service.Login;
@@ -13,8 +14,8 @@ import java.util.stream.Collectors;
 public class BibliotecaConsole {
 
     private LibraryService library;
-    private HashMap<String, String> loans = new HashMap<String, String>();
-    private String username;
+    private HashMap<String, String> loans = new HashMap<>();
+    private User user;
 
     public BibliotecaConsole() {
         this.library = new LibraryService();
@@ -23,7 +24,7 @@ public class BibliotecaConsole {
     public String checkoutLibraryItems(String libraryItemIndex, LibraryItems libraryItem) {
         boolean checkoutSucceed;
 
-        if (username == null){
+        if (user == null){
             return "You need Login!";
         }
 
@@ -31,7 +32,7 @@ public class BibliotecaConsole {
             LibraryItems item = library.getLibrary().getLibraryItemsByIndex(Integer.parseInt(libraryItemIndex), libraryItem);
 
             checkoutSucceed = library.checkoutLibraryItems(item);
-            loans.put(item.getId() + " - " + item.getName(), username);
+            loans.put(item.getId() + " - " + item.getName(), user.getLibraryLogin());
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             return "Please, enter a valid item index!\n";
         }
@@ -65,20 +66,26 @@ public class BibliotecaConsole {
         return sb.toString();
     }
 
-    public HashMap<String, String> getLoans() {
-        return loans;
+    public String getLoans() {
+        if (user.getRole().equals("librarian")){
+            return loans.toString();
+        }
+        return "You are not a librarian";
     }
 
     public boolean Login(String username, String password){
         Login login = new Login();
-        this.username = username;
-        return login.Authenticate(username, password);
+        if (login.Authenticate(username, password)){
+            this.user = library.getLibrary().getUserByLibraryUser(username);
+            return true;
+        }
+        return false;
     }
 
     public String returnBook(String libraryIndex, LibraryItems libraryItem) {
         boolean returnSucceed;
 
-        if (username == null){
+        if (user == null){
             return "You need Login!";
         }
 

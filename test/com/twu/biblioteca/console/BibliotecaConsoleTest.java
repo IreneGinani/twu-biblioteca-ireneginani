@@ -136,9 +136,7 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shloudReturnLoanList(){
-        HashMap<String, String> loans = new HashMap<String, String>() {{
-            put("2 - Sapiens", "904-8394");
-        }};
+        String loans = "{2 - Sapiens=904-8394}";
 
         menu.getBibliotecaConsole().Login("904-8394", "irene");
         menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
@@ -150,9 +148,9 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shloudReturnErrorMessageWhenCustomerUserTryAccessLoanList(){
-        String errorMessage = "You are not a Librarian";
+        String errorMessage = "You are not a librarian";
 
-        menu.getBibliotecaConsole().Login("904-8394", "irene");
+        menu.getBibliotecaConsole().Login("124-4321", "pedro");
         menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
         menu.getBibliotecaConsole().returnBook("0", new Book());
         menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
