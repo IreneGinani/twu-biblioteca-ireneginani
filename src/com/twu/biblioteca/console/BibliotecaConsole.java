@@ -68,9 +68,13 @@ public class BibliotecaConsole {
 
     public String getLoans() {
         if (user.getRole().equals("librarian")){
-            return loans.toString();
+            return loans.toString() + "\n";
         }
         return "You are not a librarian";
+    }
+
+    public String getUserRole(){
+        return user.getRole();
     }
 
     public boolean Login(String username, String password){

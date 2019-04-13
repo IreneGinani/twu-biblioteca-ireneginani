@@ -10,30 +10,22 @@ public class BibliotecaApp {
 
         System.out.println(menu.getWelcomeMessage());
 
-        while (true){
-
-            if (menu.Login()) {
+        if (menu.Login()) {
+            while (true) {
                 System.out.println(menu.getMainMenu());
 
                 Scanner scan = new Scanner(System.in);
                 String option = scan.next();
 
-
                 String output = menu.processOption(option);
-
                 if (output.isEmpty()) {
                     break;
                 }
 
                 System.out.print(output);
-
-            } else {
-                System.out.print("Sorry, username or password wrong\n");
-                break;
             }
-
+        } else {
+            System.out.print("Sorry, username or password wrong\n");
         }
-
-
     }
 }
