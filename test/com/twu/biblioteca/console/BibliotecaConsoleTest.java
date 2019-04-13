@@ -149,13 +149,15 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnSucessWhenUserLogin(){
-        assertTrue(menu.getBibliotecaConsole().Login("904-8394", "irene"));
-    }
+    public void shloudReturnErrorMessageWhenCustomerUserTryAccessLoanList(){
+        String errorMessage = "You are not a Librarian";
 
-    @Test
-    public void shloudReturnUnsucessfulWhenUserLogin(){
-        assertFalse(menu.getBibliotecaConsole().Login("904-8363", "irene"));
+        menu.getBibliotecaConsole().Login("904-8394", "irene");
+        menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
+        menu.getBibliotecaConsole().returnBook("0", new Book());
+        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
+
+        assertEquals(errorMessage, menu.getBibliotecaConsole().getLoans());
     }
 
     @Test
@@ -169,13 +171,23 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnErrorMessageWhenTryToReturnWithoutLogin(){
+    public void shouldReturnErrorMessageWhenTryToReturnWithoutLogin(){
         String errorMessage = "You need Login!";
 
         menu.getBibliotecaConsole().returnBook("0", new Book());
 
         assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("0", new Book()));
 
+    }
+
+    @Test
+    public void shloudReturnSuccessWhenUserLogin(){
+        assertTrue(menu.getBibliotecaConsole().Login("904-8394", "irene"));
+    }
+
+    @Test
+    public void shloudReturnUnsuccessfulWhenUserLogin(){
+        assertFalse(menu.getBibliotecaConsole().Login("904-8363", "irene"));
     }
 
     @Test
