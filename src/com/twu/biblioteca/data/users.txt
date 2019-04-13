@@ -1,0 +1,4 @@
+904-8394, irene, librarian
+124-4321, pedro, customer
+123-5674, manu, librarian
+234-4321, amanda, customer
