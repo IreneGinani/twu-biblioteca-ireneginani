@@ -148,6 +148,7 @@ public class BibliotecaConsoleTest{
         assertEquals(loans, menu.getBibliotecaConsole().getLoans());
     }
 
+
     @Test
     public void shouldReturnErrorMessageWhenCustomerUserTryAccessLoanList(){
         String errorMessage = "You are not a librarian";
@@ -158,6 +159,17 @@ public class BibliotecaConsoleTest{
         menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
 
         assertEquals(errorMessage, menu.getBibliotecaConsole().getLoans());
+    }
+
+    @Test
+    public void shouldReturnErrorMessageWhenTryToAccessLoanListWithoutLogin(){
+        String loans = "You need Login!\n";
+
+        menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
+        menu.getBibliotecaConsole().returnBook("0", new Book());
+        menu.getBibliotecaConsole().checkoutLibraryItems("2", new Book());
+
+        assertEquals(loans, menu.getBibliotecaConsole().getLoans());
     }
 
     @Test
