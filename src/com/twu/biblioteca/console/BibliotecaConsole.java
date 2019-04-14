@@ -73,6 +73,8 @@ public class BibliotecaConsole {
         return "You are not a librarian";
     }
 
+    public String getUserInformation() { return ""; }
+
     public String getUserRole(){
         return user.getRole();
     }
@@ -108,4 +110,5 @@ public class BibliotecaConsole {
 
         return "That is not a valid item to return.\n";
     }
+
 }

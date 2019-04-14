@@ -181,13 +181,22 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnSuccessWhenUserLogin(){
+    public void shouldReturnSuccessWhenUserLogin(){
         assertTrue(menu.getBibliotecaConsole().Login("904-8394", "irene"));
     }
 
     @Test
     public void shloudReturnUnsuccessfulWhenUserLogin(){
         assertFalse(menu.getBibliotecaConsole().Login("904-8363", "irene"));
+    }
+
+    @Test
+    public void shouldReturnUserInformation(){
+        String userInfo = "{1 - Pedro - pedro@mail.com - 9990-9808}\n";
+
+        menu.getBibliotecaConsole().Login("124-4321", "pedro");
+
+        assertEquals(userInfo,  menu.getBibliotecaConsole().getUserInformation());
     }
 
     @Test
