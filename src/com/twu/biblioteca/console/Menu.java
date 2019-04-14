@@ -21,6 +21,7 @@ public class Menu {
                 "(3) Return a book\n" +
                 "(4) List of movies\n" +
                 "(5) Checkout a movie\n" +
+                "(7) See my information\n" +
                 "(0) Quit\n";
     }
 
@@ -89,6 +90,8 @@ public class Menu {
             return bibliotecaConsole.checkoutLibraryItems(movieIndex, new Movie());
         } else if (option.equals(OptionsEnum.LoanList.value)) {
             return bibliotecaConsole.getLoans();
+        } else if (option.equals(OptionsEnum.UserInfo.value)) {
+            return bibliotecaConsole.getUserInformation();
         } else{
             return "Please select a valid option!\n";
         }
