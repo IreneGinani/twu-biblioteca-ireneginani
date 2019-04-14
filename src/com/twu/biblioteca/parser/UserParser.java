@@ -26,7 +26,7 @@ public class UserParser {
 
                 String [] userAttributes = line.split(", ");
 
-                User user = new User(userAttributes[0], userAttributes[1], userAttributes[2]);
+                User user = new User(userAttributes[0], userAttributes[1], userAttributes[2], userAttributes[3], userAttributes[4]);
 
                 users.add(user);
             }

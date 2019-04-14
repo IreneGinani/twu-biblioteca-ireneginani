@@ -1,4 +1,4 @@
-904-8394, irene, librarian
-124-4321, pedro, customer
-123-5674, manu, librarian
-234-4321, amanda, customer
+irene@mail.com, 904-8394, irene, 9089-0908, librarian
+pedro@mail.com, 124-4321, pedro, 9873-9098, customer
+manu@mail.com, 123-5674, manu, 9039-8392, librarian
+amanda@mail.com, 234-4321, amanda, 9083-9032, customer

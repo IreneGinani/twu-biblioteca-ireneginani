@@ -73,7 +73,7 @@ public class BibliotecaConsole {
         return "You are not a librarian";
     }
 
-    public String getUserInformation() { return ""; }
+    public String getUserInformation() { return user.toString(); }
 
     public String getUserRole(){
         return user.getRole();
