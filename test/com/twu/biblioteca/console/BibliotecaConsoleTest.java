@@ -137,7 +137,7 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnLoanList(){
+    public void shouldReturnLoanList(){
         String loans = "{2 - Sapiens=904-8394}\n";
 
         menu.getBibliotecaConsole().Login("904-8394", "irene");
@@ -149,7 +149,7 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shloudReturnErrorMessageWhenCustomerUserTryAccessLoanList(){
+    public void shouldReturnErrorMessageWhenCustomerUserTryAccessLoanList(){
         String errorMessage = "You are not a librarian";
 
         menu.getBibliotecaConsole().Login("124-4321", "pedro");
@@ -171,12 +171,20 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenTryToReturnWithoutLogin(){
+    public void shouldReturnErrorMessageWhenTryToReturnBooktWithoutLogin(){
         String errorMessage = "You need Login!";
 
         menu.getBibliotecaConsole().returnBook("0", new Book());
 
         assertEquals(errorMessage, menu.getBibliotecaConsole().returnBook("0", new Book()));
+
+    }
+
+    @Test
+    public void shouldReturnErrorMessageWhenTryToReturnUserInfoWithoutLogin(){
+        String errorMessage = "You need Login!";
+
+        assertEquals(errorMessage, menu.getBibliotecaConsole().getUserInformation());
 
     }
 
