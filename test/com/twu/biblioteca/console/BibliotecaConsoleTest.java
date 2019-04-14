@@ -163,7 +163,7 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shouldReturnErrorMessageWhenTryToAccessLoanListWithoutLogin(){
-        String loans = "You need Login!\n";
+        String loans = "You need login!";
 
         menu.getBibliotecaConsole().checkoutLibraryItems("0", new Book());
         menu.getBibliotecaConsole().returnBook("0", new Book());
@@ -183,7 +183,7 @@ public class BibliotecaConsoleTest{
     }
 
     @Test
-    public void shouldReturnErrorMessageWhenTryToReturnBooktWithoutLogin(){
+    public void shouldReturnErrorMessageWhenTryToReturnBookWithoutLogin(){
         String errorMessage = "You need Login!";
 
         menu.getBibliotecaConsole().returnBook("0", new Book());
