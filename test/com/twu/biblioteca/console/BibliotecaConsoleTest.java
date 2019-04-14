@@ -192,7 +192,7 @@ public class BibliotecaConsoleTest{
 
     @Test
     public void shouldReturnUserInformation(){
-        String userInfo = "{1 - Pedro - pedro@mail.com - 9990-9808}\n";
+        String userInfo = "pedro - pedro@mail.com - 9873-9098\n";
 
         menu.getBibliotecaConsole().Login("124-4321", "pedro");
 
