@@ -1,0 +1,1 @@
+SELECT name FROM member as m INNER JOIN checkout_item on checkout_item.member_id = m.id INNER JOIN book on book.id = checkout_item.book_id and book.title = "The Hobbit";
