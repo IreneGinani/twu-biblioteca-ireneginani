@@ -14,6 +14,10 @@ public class BookParser {
     private List<Book> books = new ArrayList<>();
 
     public BookParser(){
+        bookParser();
+    }
+
+    public List<Book> bookParser(){
         try {
 
             Scanner bookFile = new Scanner(new FileReader("src/com/twu/biblioteca/data/books.txt"));
@@ -21,7 +25,6 @@ public class BookParser {
             while (bookFile.hasNextLine()){
                 String line = bookFile.nextLine();
 
-                System.out.println(line);
                 String [] bookAttributes = line.split(", ");
 
                 Book book = new Book(Integer.parseInt(bookAttributes[0]), bookAttributes[1], bookAttributes[2] ,Integer.parseInt(bookAttributes[3]));
@@ -33,8 +36,7 @@ public class BookParser {
             System.out.println("No such file or directory");
         }
 
-
-
+        return books;
     }
 
     public List<Book> getBookList() {

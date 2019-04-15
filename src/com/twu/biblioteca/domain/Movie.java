@@ -2,19 +2,22 @@ package com.twu.biblioteca.domain;
 
 import java.util.Objects;
 
-public class Book extends LibraryItems{
+public class Movie extends LibraryItems{
 
-    private String author;
+    private String director;
+    private String rating;
     private int year;
 
-    public Book(int id, String title, String author, int year) {
+    public Movie(int id, String title, String director, int year, String rating) {
         super(id, title, true);
-        this.author = author;
+        this.director = director;
         this.year = year;
+        this.rating = rating;
 
+        setAvailable(true);
     }
 
-    public Book() {
+    public Movie() {
         super(0, new String(), true);
     }
 
@@ -22,8 +25,8 @@ public class Book extends LibraryItems{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return Objects.equals(getId(), book.getId());
+        Movie movie = (Movie) o;
+        return getId() == movie.getId();
     }
 
     public String toString() {
@@ -33,9 +36,11 @@ public class Book extends LibraryItems{
                 .append(" - ")
                 .append(getName())
                 .append(" - ")
-                .append(author)
+                .append(director)
                 .append(" - ")
                 .append(year)
+                .append(" - ")
+                .append(rating)
                 .append("\n");
 
         return sb.toString();

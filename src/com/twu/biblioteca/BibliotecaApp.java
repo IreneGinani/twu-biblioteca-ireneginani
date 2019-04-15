@@ -1,35 +1,31 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.console.Menu;
-import com.twu.biblioteca.service.LibraryService;
-
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        LibraryService library = new LibraryService();
-
+    public static void main(String[] args) {
         Menu menu = new Menu();
 
         System.out.println(menu.getWelcomeMessage());
 
-        while (true){
-            System.out.println(menu.getMainMenu());
+        if (menu.Login()) {
+            while (true) {
+                System.out.println(menu.getMainMenu());
 
-            Scanner scan = new Scanner(System.in);
-            String option = scan.next();
+                Scanner scan = new Scanner(System.in);
+                String option = scan.next();
 
-            String output = menu.processOption(option);
+                String output = menu.processOption(option);
+                if (output.isEmpty()) {
+                    break;
+                }
 
-            if (output.isEmpty()) {
-                break;
+                System.out.print(output);
             }
-
-            System.out.print(output);
+        } else {
+            System.out.print("Sorry, username or password wrong\n");
         }
-
-
     }
 }
